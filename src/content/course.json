@@ -1,0 +1,1009 @@
+{
+  "id": "programacion-estructurada",
+  "title": "Programación Estructurada",
+  "subtitle": "Mapa de aprendizaje en lenguaje C",
+  "groups": [
+    {
+      "id": "previos",
+      "name": "Antes de empezar",
+      "color": {
+        "light": "#0e7490",
+        "dark": "#67e8f9"
+      }
+    },
+    {
+      "id": "m1",
+      "name": "Módulo 1",
+      "color": {
+        "light": "#1d4ed8",
+        "dark": "#93c5fd"
+      }
+    },
+    {
+      "id": "m2",
+      "name": "Módulo 2",
+      "color": {
+        "light": "#6d28d9",
+        "dark": "#c4b5fd"
+      }
+    },
+    {
+      "id": "m3",
+      "name": "Módulo 3",
+      "color": {
+        "light": "#b45309",
+        "dark": "#fcd34d"
+      }
+    },
+    {
+      "id": "m4",
+      "name": "Módulo 4",
+      "color": {
+        "light": "#be123c",
+        "dark": "#fda4af"
+      }
+    },
+    {
+      "id": "meta",
+      "name": "Meta",
+      "color": {
+        "light": "#047857",
+        "dark": "#6ee7b7"
+      }
+    }
+  ],
+  "topics": [
+    {
+      "id": "p1",
+      "group": "previos",
+      "title": "Manejo básico de la computadora",
+      "requires": [],
+      "summary": "Saber moverte por el sistema operativo, usar teclado y ratón, y organizar tus archivos.",
+      "prior": "Ninguno. Solo necesitas acceso a una computadora y ganas de practicar.",
+      "why": "Todo el curso ocurre en una computadora. Organizar archivos y usar el teclado ahorra tiempo desde la primera práctica.",
+      "examples": [
+        {
+          "title": "Tu carpeta de trabajo",
+          "explanation": "Crea una carpeta por materia y usa nombres de archivo claros. Así encontrarás tus programas y respaldos.",
+          "language": "text",
+          "code": "1. Abre el explorador de archivos.\n2. Crea una carpeta llamada \"ProgramacionC\".\n3. Guarda cada práctica con un nombre como \"practica01.c\".\n4. Copia la carpeta a una USB o a la nube al terminar."
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "group": "previos",
+      "title": "Aritmética básica",
+      "requires": [],
+      "summary": "Sumar, restar, multiplicar y dividir números, respetando la jerarquía de las operaciones.",
+      "prior": "Ninguno. Es la aritmética que ya usas todos los días.",
+      "why": "Los programas trabajan con números desde el primer cálculo. Esta base se reutiliza en fórmulas, condiciones y ciclos.",
+      "examples": [
+        {
+          "title": "Jerarquía de operaciones",
+          "explanation": "La multiplicación se resuelve antes que la suma. Los paréntesis cambian el orden.",
+          "language": "text",
+          "code": "Expresión: 2 + 3 * 4\nPrimero: 3 * 4 = 12\nDespués: 2 + 12 = 14\n\nExpresión: (2 + 3) * 4\nResultado: 20",
+          "output": "14 y 20"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "group": "previos",
+      "title": "Comprensión lectora y escritura",
+      "requires": [],
+      "summary": "Leer un enunciado e identificar qué datos te dan, qué te piden y qué pasos faltan.",
+      "prior": "Ninguno. Se practica con cualquier texto breve.",
+      "why": "Antes de escribir código hay que entender el problema. La comprensión lectora es el primer filtro de un algoritmo.",
+      "examples": [
+        {
+          "title": "Separar datos, pregunta y plan",
+          "explanation": "Subraya la información clave antes de pensar en código.",
+          "language": "text",
+          "code": "Enunciado: \"Un curso tiene 30 alumnos y cada uno paga $150. ¿Cuánto se recauda?\"\n\nDatos: 30 alumnos y $150 por alumno.\nPregunta: total recaudado.\nPlan: multiplicar 30 por 150.",
+          "output": "Plan: 30 × 150 = 4500."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "group": "previos",
+      "title": "Pensamiento lógico",
+      "requires": [],
+      "summary": "Ordenar ideas, reconocer condiciones y construir pasos que siempre lleguen a una respuesta.",
+      "prior": "Ninguno. Puedes entrenarlo con situaciones cotidianas.",
+      "why": "Programar es tomar decisiones lógicas. Este pensamiento se usa al diseñar algoritmos, condiciones y ciclos.",
+      "examples": [
+        {
+          "title": "Una decisión cotidiana",
+          "explanation": "La condición divide el plan en dos caminos posibles.",
+          "language": "pseudocode",
+          "code": "si hay paraguas entonces\n  salir con paraguas\nsi no\n  revisar el pronóstico\nfin si"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "group": "previos",
+      "title": "Álgebra básica",
+      "requires": [
+        "p2"
+      ],
+      "summary": "Usar variables y fórmulas sencillas para representar cantidades y despejar valores.",
+      "prior": "Aritmética básica y operaciones con números.",
+      "why": "Las fórmulas aparecen en variables y en problemas de cálculo. Álgebra permite escribir una solución general.",
+      "examples": [
+        {
+          "title": "Área de un rectángulo",
+          "explanation": "Una fórmula resume una operación que puedes repetir con cualquier medida.",
+          "language": "pseudocode",
+          "code": "base <- 8\naltura <- 5\narea <- base * altura\nescribir area",
+          "output": "40"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "group": "previos",
+      "title": "Inglés técnico mínimo",
+      "requires": [],
+      "summary": "Reconocer palabras frecuentes de la documentación y de los mensajes del compilador.",
+      "prior": "Ninguno. No necesitas hablar inglés con fluidez.",
+      "why": "Los errores de C suelen estar en inglés. Entender palabras clave acelera la depuración.",
+      "examples": [
+        {
+          "title": "Palabras que verás seguido",
+          "explanation": "Muchas aparecen en mensajes del compilador y en la biblioteca estándar.",
+          "language": "text",
+          "code": "error      -> error que impide compilar\nwarning    -> aviso; el programa puede compilar\ninclude    -> incluir una biblioteca\nreturn     -> devolver un valor o terminar una función\ninput      -> entrada de datos\noutput     -> salida de datos"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "group": "previos",
+      "title": "Sistemas de numeración (binario)",
+      "requires": [
+        "p2"
+      ],
+      "summary": "Entender cómo se escribe un número en decimal y en binario usando potencias de 2.",
+      "prior": "Aritmética básica y divisiones entre 2.",
+      "why": "Los tipos de datos tienen límites porque la computadora guarda bits. Binario explica esos límites antes de ver int y float.",
+      "examples": [
+        {
+          "title": "Convertir 13 a binario",
+          "explanation": "Divide entre 2 y lee los residuos de abajo hacia arriba.",
+          "language": "text",
+          "code": "13 ÷ 2 = 6, residuo 1\n 6 ÷ 2 = 3, residuo 0\n 3 ÷ 2 = 1, residuo 1\n 1 ÷ 2 = 0, residuo 1\n\nResiduos de abajo hacia arriba: 1101",
+          "output": "13 en binario = 1101"
+        },
+        {
+          "title": "Bits y bytes",
+          "explanation": "Un bit es un 0 o un 1. Ocho bits forman un byte.",
+          "language": "text",
+          "code": "1 byte = 8 bits\nCon 8 bits se representan 2^8 = 256 combinaciones.\nPor eso los enteros tienen límites: no hay espacio infinito."
+        }
+      ]
+    },
+    {
+      "id": "a1",
+      "group": "m1",
+      "title": "Historia de las computadoras",
+      "requires": [
+        "p1"
+      ],
+      "summary": "Conocer cómo pasaron las computadoras de máquinas mecánicas a circuitos electrónicos y software.",
+      "prior": "Manejo básico de la computadora.",
+      "why": "La historia explica por qué existen los lenguajes y las herramientas actuales. Es un buen punto de entrada antes de hablar de paradigmas.",
+      "examples": [
+        {
+          "title": "Línea de tiempo breve",
+          "explanation": "Cada etapa resolvió una limitación de la anterior.",
+          "language": "text",
+          "code": "1940s      Válvulas: máquinas grandes y costosas\n1950s      Transistores: más pequeñas y confiables\n1960s      Circuitos integrados: más capacidad\n1970s      Microprocesadores: computadoras personales\nActualidad Movilidad, redes y nube"
+        }
+      ]
+    },
+    {
+      "id": "a2",
+      "group": "m1",
+      "title": "Paradigmas y lenguajes",
+      "requires": [
+        "a1"
+      ],
+      "summary": "Distinguir formas de organizar programas y cómo se relacionan con los lenguajes.",
+      "prior": "Historia de las computadoras.",
+      "why": "Antes de estudiar C conviene saber qué es la programación estructurada y cómo se diferencia de otros paradigmas.",
+      "examples": [
+        {
+          "title": "Estructurada frente a objetos",
+          "explanation": "La programación estructurada organiza el trabajo en pasos y funciones; la orientada a objetos agrupa datos y comportamientos.",
+          "language": "text",
+          "code": "Estructurada: resolver -> dividir en pasos -> usar funciones\nObjetos:      modelar entidades -> agrupar datos y acciones\nLenguajes:    C (estructurada), Python (multiparadigma), Java (objetos)"
+        }
+      ]
+    },
+    {
+      "id": "a3",
+      "group": "m1",
+      "title": "Compiladores e intérpretes",
+      "requires": [
+        "a2"
+      ],
+      "summary": "Entender el viaje del código fuente al programa que se ejecuta.",
+      "prior": "Paradigmas y lenguajes.",
+      "why": "C es un lenguaje compilado. Saber qué hace el compilador ayuda a interpretar errores y a preparar el entorno.",
+      "examples": [
+        {
+          "title": "Compilar o interpretar",
+          "explanation": "Ambos caminos traducen tus instrucciones, pero en momentos distintos.",
+          "language": "text",
+          "code": "Compilado (C):\n  codigo.c -> compilador -> ejecutable -> ejecutar\n\nInterpretado:\n  codigo.py -> intérprete lee y ejecuta línea por línea"
+        }
+      ]
+    },
+    {
+      "id": "b1",
+      "group": "m1",
+      "title": "Algoritmo",
+      "requires": [
+        "p3",
+        "p4"
+      ],
+      "summary": "Diseñar una secuencia finita y ordenada de pasos que resuelve un problema.",
+      "prior": "Comprensión lectora y pensamiento lógico.",
+      "why": "El algoritmo es la idea que luego se escribe en seudocódigo y, más tarde, en C. Primero se piensa la solución.",
+      "examples": [
+        {
+          "title": "Algoritmo para calcular un promedio",
+          "explanation": "Los pasos son claros, finitos y producen un resultado.",
+          "language": "pseudocode",
+          "code": "inicio\n  leer nota1\n  leer nota2\n  promedio <- (nota1 + nota2) / 2\n  escribir promedio\nfin",
+          "output": "Con 8 y 6, el promedio es 7."
+        }
+      ]
+    },
+    {
+      "id": "b2",
+      "group": "m1",
+      "title": "Seudocódigo",
+      "requires": [
+        "b1"
+      ],
+      "summary": "Escribir algoritmos con reglas simples, sin preocuparte todavía por la sintaxis de C.",
+      "prior": "Qué es un algoritmo.",
+      "why": "El seudocódigo va antes de C: primero se ordena la lógica sin pelear con la sintaxis. Ese orden evita aprender dos cosas nuevas a la vez.",
+      "examples": [
+        {
+          "title": "Sumar dos números",
+          "explanation": "Las flechas indican asignación y las palabras reservadas imitan la estructura de un programa.",
+          "language": "pseudocode",
+          "code": "inicio\n  leer a\n  leer b\n  suma <- a + b\n  escribir \"La suma es \", suma\nfin",
+          "output": "Con a = 4 y b = 7: La suma es 11"
+        }
+      ]
+    },
+    {
+      "id": "b3",
+      "group": "m1",
+      "title": "Método para resolver problemas",
+      "requires": [
+        "b1"
+      ],
+      "summary": "Aplicar un método: entender, planear, escribir, probar y corregir.",
+      "prior": "Qué es un algoritmo.",
+      "why": "Programar no empieza en el teclado. Este método ordena el trabajo y se repite en todos los temas siguientes.",
+      "examples": [
+        {
+          "title": "Cinco pasos antes de entregar",
+          "explanation": "Probar con casos normales y casos límite evita sorpresas.",
+          "language": "text",
+          "code": "1. Entender: ¿qué entra y qué debe salir?\n2. Planear: escribir el algoritmo o seudocódigo.\n3. Codificar: traducirlo al lenguaje.\n4. Probar: usar datos conocidos.\n5. Corregir: comparar el resultado esperado con el obtenido."
+        }
+      ]
+    },
+    {
+      "id": "b4",
+      "group": "m1",
+      "title": "Asignaciones, condiciones y ciclos",
+      "requires": [
+        "b2",
+        "b3"
+      ],
+      "summary": "Comprender asignación, decisión y repetición, los tres bloques de la programación estructurada.",
+      "prior": "Seudocódigo y método de resolución.",
+      "why": "Estas estructuras son la base común de C y de cualquier lenguaje. Aquí se aprenden sin depender de la sintaxis.",
+      "examples": [
+        {
+          "title": "Sumar los números pares del 1 al 5",
+          "explanation": "El ciclo recorre valores y la condición decide cuáles se suman.",
+          "language": "pseudocode",
+          "code": "suma <- 0\npara i desde 1 hasta 5\n  si i mod 2 = 0 entonces\n    suma <- suma + i\n  fin si\nfin para\nescribir suma",
+          "output": "6"
+        },
+        {
+          "title": "Seguir una asignación",
+          "explanation": "La segunda asignación usa el valor anterior de la variable.",
+          "language": "pseudocode",
+          "code": "edad <- 18\nedad <- edad + 1\nescribir edad",
+          "output": "19"
+        }
+      ]
+    },
+    {
+      "id": "b5",
+      "group": "m1",
+      "title": "Problemas de fórmulas clásicas",
+      "requires": [
+        "b4",
+        "p5"
+      ],
+      "summary": "Traducir fórmulas conocidas a una secuencia de instrucciones que la computadora puede ejecutar.",
+      "prior": "Estructuras básicas y álgebra.",
+      "why": "Las fórmulas clásicas conectan matemáticas con código. Se ubican después de las estructuras para poder leer, calcular e imprimir.",
+      "examples": [
+        {
+          "title": "Área de un círculo",
+          "explanation": "Usa una constante aproximada de π y muestra el resultado.",
+          "language": "pseudocode",
+          "code": "radio <- 3\narea <- 3.1416 * radio * radio\nescribir \"Area: \", area",
+          "output": "Area: 28.2744"
+        }
+      ]
+    },
+    {
+      "id": "c1",
+      "group": "m1",
+      "title": "Estructura de un programa en C",
+      "requires": [
+        "b2",
+        "a3"
+      ],
+      "summary": "Reconocer las partes mínimas de un programa en C: bibliotecas, main, llaves y punto y coma.",
+      "prior": "Seudocódigo y proceso de compilación.",
+      "why": "C aparece después del seudocódigo para no aprender lógica y sintaxis al mismo tiempo. Aquí se traduce una idea ya conocida.",
+      "examples": [
+        {
+          "title": "Hola, mundo",
+          "explanation": "La función main es el punto de entrada. Cada instrucción termina con punto y coma.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Hola, mundo.\\n\");\n    return 0;\n}",
+          "output": "Hola, mundo."
+        },
+        {
+          "title": "Comentarios y estructura",
+          "explanation": "Los comentarios documentan el código y no se ejecutan.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    /* Un comentario no se ejecuta. */\n    printf(\"C lista para practicar.\\n\");\n    return 0;\n}",
+          "output": "C lista para practicar."
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "group": "m1",
+      "title": "IDE: editar, compilar y ejecutar",
+      "requires": [
+        "c1"
+      ],
+      "summary": "Editar, compilar y ejecutar un programa usando un entorno integrado.",
+      "prior": "Estructura de un programa en C.",
+      "why": "Necesitas un ciclo de trabajo repetible: escribir, compilar, leer errores y ejecutar. El IDE lo reúne en un solo lugar.",
+      "examples": [
+        {
+          "title": "Ciclo en un IDE",
+          "explanation": "Compilar antes de ejecutar muestra los errores de sintaxis.",
+          "language": "text",
+          "code": "1. Crear un archivo .c\n2. Escribir el programa\n3. Guardar\n4. Compilar (Build)\n5. Ejecutar (Run)\n6. Leer la consola y corregir si hace falta"
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "group": "m1",
+      "title": "Depurar errores",
+      "requires": [
+        "c2",
+        "p6"
+      ],
+      "summary": "Leer los mensajes del compilador y distinguir errores de sintaxis, enlace y lógica.",
+      "prior": "IDE e inglés técnico mínimo.",
+      "why": "Depurar es parte normal de programar. Se ve temprano para que un error no detenga el aprendizaje.",
+      "examples": [
+        {
+          "title": "Un error que sí compila",
+          "explanation": "El programa compila, pero el descuento se calcula mal por la división entera. Probar con datos conocidos revela el problema.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int precio = 100;\n    int descuento = 20;\n    int total = precio - descuento / 100;\n\n    printf(\"Total: %d\\n\", total);\n    return 0;\n}",
+          "output": "Total: 100"
+        },
+        {
+          "title": "Leer un mensaje del compilador",
+          "explanation": "El compilador señala el punto donde falta un punto y coma e indica qué encontró en su lugar.",
+          "language": "text",
+          "code": "error: expected ';' before 'printf'"
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "group": "m1",
+      "title": "Entrada y salida por consola",
+      "requires": [
+        "c2"
+      ],
+      "summary": "Mostrar resultados con printf y leer datos con scanf.",
+      "prior": "IDE y compilación.",
+      "why": "Entrada y salida van antes de variables para que puedas ver resultados desde el inicio. Un programa sin salida es difícil de comprobar.",
+      "examples": [
+        {
+          "title": "Leer una edad",
+          "explanation": "scanf necesita la dirección de la variable, por eso lleva el símbolo &. En la salida, la línea 18 la escribe el usuario.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int edad;\n    printf(\"Edad: \");\n    scanf(\"%d\", &edad);\n    printf(\"Tienes %d años.\\n\", edad);\n    return 0;\n}",
+          "output": "Edad: 18\nTienes 18 años."
+        },
+        {
+          "title": "Formato de números",
+          "explanation": "Los especificadores controlan decimales y ceros a la izquierda.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Pi: %.2f\\n\", 3.14159);\n    printf(\"Entero: %05d\\n\", 42);\n    return 0;\n}",
+          "output": "Pi: 3.14\nEntero: 00042"
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "group": "m1",
+      "title": "Variables y tipos de datos",
+      "requires": [
+        "c4",
+        "p5",
+        "p7"
+      ],
+      "summary": "Declarar variables y elegir el tipo adecuado: enteros, decimales y caracteres.",
+      "prior": "Entrada/salida, álgebra y binario.",
+      "why": "Los tipos tienen límites que se entienden con binario. Se ven después de la salida para poder imprimir y comprobar cada valor.",
+      "examples": [
+        {
+          "title": "Tres tipos básicos",
+          "explanation": "Cada tipo usa un especificador distinto en printf.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int edad = 20;\n    float estatura = 1.72f;\n    char inicial = 'A';\n\n    printf(\"%d %.2f %c\\n\", edad, estatura, inicial);\n    return 0;\n}",
+          "output": "20 1.72 A"
+        },
+        {
+          "title": "Precisión decimal",
+          "explanation": "float y double guardan decimales con distinta precisión.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    float estatura = 1.72f;\n    double pi = 3.141592653589793;\n\n    printf(\"%.2f\\n\", estatura);\n    printf(\"%.5f\\n\", pi);\n    return 0;\n}",
+          "output": "1.72\n3.14159"
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "group": "m1",
+      "title": "Expresiones y operadores",
+      "requires": [
+        "c5",
+        "p2"
+      ],
+      "summary": "Combinar valores con operadores aritméticos, de asignación y de incremento.",
+      "prior": "Variables y tipos, aritmética.",
+      "why": "Con variables ya puedes construir expresiones. Antes de decidir o repetir, necesitas calcular y comparar valores.",
+      "examples": [
+        {
+          "title": "División entera y residuo",
+          "explanation": "Al dividir enteros, C descarta la parte decimal. El operador % devuelve el residuo.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 7;\n    int b = 2;\n    printf(\"%d %d %d\\n\", a + b, a / b, a % b);\n    return 0;\n}",
+          "output": "9 3 1"
+        },
+        {
+          "title": "Precedencia e incremento",
+          "explanation": "La multiplicación se evalúa antes que la suma; ++ suma uno.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int resultado = 2 + 3 * 4;\n    int contador = 5;\n    contador++;\n    printf(\"%d %d\\n\", resultado, contador);\n    return 0;\n}",
+          "output": "14 6"
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "group": "m1",
+      "title": "Biblioteca de funciones",
+      "requires": [
+        "c6"
+      ],
+      "summary": "Usar funciones ya hechas de la biblioteca estándar y saber qué archivo incluir.",
+      "prior": "Expresiones y operadores.",
+      "why": "Las bibliotecas evitan reescribir lo que ya existe. Conocerlas prepara el camino para crear tus propias funciones.",
+      "examples": [
+        {
+          "title": "stdlib y ctype",
+          "explanation": "Cada biblioteca aporta funciones especializadas; hay que incluir su archivo de cabecera.",
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <stdlib.h>\n#include <ctype.h>\n\nint main(void) {\n    printf(\"%d\\n\", abs(-5));\n    printf(\"%c\\n\", toupper('a'));\n    return 0;\n}",
+          "output": "5\nA"
+        },
+        {
+          "title": "Formato desde stdio",
+          "explanation": "stdio incluye printf, que ya usaste, y muchas otras funciones de entrada y salida.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Mayúscula: %c\\n\", 'C');\n    printf(\"Número: %.3f\\n\", 2.5);\n    return 0;\n}",
+          "output": "Mayúscula: C\nNúmero: 2.500"
+        }
+      ]
+    },
+    {
+      "id": "d1",
+      "group": "m2",
+      "title": "Expresiones booleanas",
+      "requires": [
+        "c6",
+        "p4"
+      ],
+      "summary": "Construir condiciones con comparaciones y operadores lógicos que producen verdadero o falso.",
+      "prior": "Expresiones y pensamiento lógico.",
+      "why": "El if necesita una condición. Las expresiones booleanas se ven antes de las decisiones para separar el cálculo de la elección.",
+      "examples": [
+        {
+          "title": "Comparar y combinar",
+          "explanation": "En C, 1 representa verdadero y 0 representa falso. && exige que ambas partes se cumplan.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int edad = 20;\n    int tieneEntrada = 1;\n\n    printf(\"%d\\n\", edad >= 18 && tieneEntrada);\n    printf(\"%d\\n\", edad < 18 || tieneEntrada);\n    return 0;\n}",
+          "output": "1\n1"
+        },
+        {
+          "title": "Negación",
+          "explanation": "El operador ! invierte el valor de una condición.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int a = 5;\n    printf(\"a > 3: %d\\n\", a > 3);\n    printf(\"a == 3: %d\\n\", a == 3);\n    printf(\"!(a > 3): %d\\n\", !(a > 3));\n    return 0;\n}",
+          "output": "a > 3: 1\na == 3: 0\n!(a > 3): 0"
+        }
+      ]
+    },
+    {
+      "id": "d2",
+      "group": "m2",
+      "title": "if / if-else",
+      "requires": [
+        "d1"
+      ],
+      "summary": "Tomar decisiones con if e if-else según una condición.",
+      "prior": "Expresiones booleanas.",
+      "why": "El if aparece antes de los ciclos: primero se domina elegir un camino y después repetir acciones.",
+      "examples": [
+        {
+          "title": "Mayoría de edad",
+          "explanation": "Si la condición es falsa, se ejecuta el bloque de else.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int edad = 17;\n\n    if (edad >= 18) {\n        printf(\"Mayor de edad\\n\");\n    } else {\n        printf(\"Menor de edad\\n\");\n    }\n    return 0;\n}",
+          "output": "Menor de edad"
+        },
+        {
+          "title": "Validar un número positivo",
+          "explanation": "Un if puede ejecutarse sin else cuando solo interesa un caso.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int numero = 5;\n\n    if (numero > 0) {\n        printf(\"Positivo\\n\");\n    }\n    return 0;\n}",
+          "output": "Positivo"
+        }
+      ]
+    },
+    {
+      "id": "d3",
+      "group": "m2",
+      "title": "switch / case",
+      "requires": [
+        "d2"
+      ],
+      "summary": "Elegir entre varios casos exactos con switch, case, break y default.",
+      "prior": "if / if-else.",
+      "why": "Switch complementa el if cuando hay varias opciones discretas. Se ve después de las decisiones básicas.",
+      "examples": [
+        {
+          "title": "Elegir una opción",
+          "explanation": "break evita que la ejecución continúe hacia el siguiente caso.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int opcion = 2;\n\n    switch (opcion) {\n        case 1:\n            printf(\"Nuevo\\n\");\n            break;\n        case 2:\n            printf(\"Abierto\\n\");\n            break;\n        default:\n            printf(\"Desconocido\\n\");\n    }\n    return 0;\n}",
+          "output": "Abierto"
+        },
+        {
+          "title": "Clasificar una letra",
+          "explanation": "default cubre todos los valores que no coinciden con ningún case.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    char nivel = 'B';\n\n    switch (nivel) {\n        case 'A':\n            printf(\"Excelente\\n\");\n            break;\n        case 'B':\n            printf(\"Bien\\n\");\n            break;\n        default:\n            printf(\"Por mejorar\\n\");\n    }\n    return 0;\n}",
+          "output": "Bien"
+        }
+      ]
+    },
+    {
+      "id": "d4",
+      "group": "m2",
+      "title": "Decisiones anidadas",
+      "requires": [
+        "d2"
+      ],
+      "summary": "Anidar decisiones y usar else if para evaluar varios rangos en orden.",
+      "prior": "if / if-else.",
+      "why": "Las decisiones anidadas permiten clasificar casos. Se practican antes de combinarlas con ciclos.",
+      "examples": [
+        {
+          "title": "Clasificar una nota",
+          "explanation": "Las condiciones se revisan de arriba hacia abajo; la primera que se cumple gana.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int nota = 85;\n\n    if (nota >= 90) {\n        printf(\"Excelente\\n\");\n    } else if (nota >= 80) {\n        printf(\"Muy bien\\n\");\n    } else if (nota >= 70) {\n        printf(\"Aprobado\\n\");\n    } else {\n        printf(\"Reprobado\\n\");\n    }\n    return 0;\n}",
+          "output": "Muy bien"
+        },
+        {
+          "title": "Dos condiciones relacionadas",
+          "explanation": "Un if dentro de otro permite comprobar una condición solo cuando la primera ya se cumplió.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int edad = 20;\n    int tienePermiso = 1;\n\n    if (edad >= 18) {\n        if (tienePermiso) {\n            printf(\"Puede entrar\\n\");\n        } else {\n            printf(\"Necesita permiso\\n\");\n        }\n    }\n    return 0;\n}",
+          "output": "Puede entrar"
+        }
+      ]
+    },
+    {
+      "id": "d5",
+      "group": "m2",
+      "title": "while y do-while",
+      "requires": [
+        "d2",
+        "c6"
+      ],
+      "summary": "Repetir instrucciones mientras se cumple una condición con while y do-while.",
+      "prior": "Decisiones y expresiones.",
+      "why": "Los ciclos aparecen después del if porque repiten decisiones. Primero while, que evalúa antes de entrar.",
+      "examples": [
+        {
+          "title": "Cuenta regresiva con while",
+          "explanation": "La variable i debe cambiar dentro del ciclo para que la condición deje de cumplirse.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int i = 3;\n\n    while (i > 0) {\n        printf(\"%d\\n\", i);\n        i--;\n    }\n    printf(\"Despegue\\n\");\n    return 0;\n}",
+          "output": "3\n2\n1\nDespegue"
+        },
+        {
+          "title": "do-while se ejecuta al menos una vez",
+          "explanation": "La condición se revisa al final, después de ejecutar el bloque.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int i = 5;\n\n    do {\n        printf(\"Se ejecuta\\n\");\n        i++;\n    } while (i < 3);\n    return 0;\n}",
+          "output": "Se ejecuta"
+        }
+      ]
+    },
+    {
+      "id": "d6",
+      "group": "m2",
+      "title": "Ciclo for",
+      "requires": [
+        "d5"
+      ],
+      "summary": "Usar for cuando conoces la inicialización, la condición y el avance del ciclo.",
+      "prior": "while y do-while.",
+      "why": "El for hace explícito el recorrido y prepara los arreglos, que se visitan con índices.",
+      "examples": [
+        {
+          "title": "Sumar del 1 al 5",
+          "explanation": "La variable i se inicializa, se comprueba y se incrementa en una sola línea.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int suma = 0;\n\n    for (int i = 1; i <= 5; i++) {\n        suma += i;\n    }\n    printf(\"%d\\n\", suma);\n    return 0;\n}",
+          "output": "15"
+        },
+        {
+          "title": "Tabla de multiplicar",
+          "explanation": "El cuerpo del for se repite para cada valor de i.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 3; i++) {\n        printf(\"3 x %d = %d\\n\", i, 3 * i);\n    }\n    return 0;\n}",
+          "output": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9"
+        }
+      ]
+    },
+    {
+      "id": "d7",
+      "group": "m2",
+      "title": "Ciclos anidados",
+      "requires": [
+        "d6",
+        "d4"
+      ],
+      "summary": "Combinar dos ciclos para recorrer filas y columnas o repetir patrones.",
+      "prior": "for y decisiones anidadas.",
+      "why": "Los ciclos anidados aparecen después del for y las decisiones. Son la antesala de las matrices.",
+      "examples": [
+        {
+          "title": "Tabla de multiplicar 3x3",
+          "explanation": "Por cada valor de fila, el ciclo interno recorre todas las columnas.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    for (int fila = 1; fila <= 3; fila++) {\n        for (int col = 1; col <= 3; col++) {\n            printf(\"%d\", fila * col);\n            if (col < 3) {\n                printf(\" \");\n            }\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+          "output": "1 2 3\n2 4 6\n3 6 9"
+        },
+        {
+          "title": "Triángulo de asteriscos",
+          "explanation": "El ciclo interno depende de la fila, por eso cada línea tiene un carácter más.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    for (int fila = 1; fila <= 3; fila++) {\n        for (int col = 1; col <= fila; col++) {\n            printf(\"*\");\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+          "output": "*\n**\n***"
+        }
+      ]
+    },
+    {
+      "id": "e1",
+      "group": "m3",
+      "title": "Arreglos de una dimensión",
+      "requires": [
+        "d6"
+      ],
+      "summary": "Guardar varios valores del mismo tipo en una colección con índices desde 0.",
+      "prior": "Ciclo for.",
+      "why": "El for recorre el arreglo. Primero se domina el ciclo y luego se agrupan datos.",
+      "examples": [
+        {
+          "title": "Recorrer un arreglo",
+          "explanation": "El primer elemento está en el índice 0 y el último en tamaño - 1.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int notas[3] = {8, 9, 7};\n\n    for (int i = 0; i < 3; i++) {\n        printf(\"Nota %d: %d\\n\", i + 1, notas[i]);\n    }\n    return 0;\n}",
+          "output": "Nota 1: 8\nNota 2: 9\nNota 3: 7"
+        },
+        {
+          "title": "Sumar los elementos",
+          "explanation": "Un acumulador guarda el total mientras el ciclo recorre el arreglo.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int numeros[4] = {2, 4, 6, 8};\n    int suma = 0;\n\n    for (int i = 0; i < 4; i++) {\n        suma += numeros[i];\n    }\n    printf(\"%d\\n\", suma);\n    return 0;\n}",
+          "output": "20"
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "group": "m3",
+      "title": "Cadenas (strings)",
+      "requires": [
+        "e1"
+      ],
+      "summary": "Manejar cadenas como arreglos de caracteres que terminan en el carácter nulo.",
+      "prior": "Arreglos de una dimensión.",
+      "why": "Una cadena es un arreglo de char con terminador. Se ve después de dominar índices y recorridos.",
+      "examples": [
+        {
+          "title": "Longitud de una cadena",
+          "explanation": "strlen cuenta caracteres sin incluir el terminador nulo final.",
+          "language": "c",
+          "code": "#include <stdio.h>\n#include <string.h>\n\nint main(void) {\n    char nombre[] = \"Ada\";\n\n    printf(\"%s tiene %zu letras.\\n\", nombre, strlen(nombre));\n    return 0;\n}",
+          "output": "Ada tiene 3 letras."
+        },
+        {
+          "title": "Leer una cadena con fgets",
+          "explanation": "fgets evita desbordar el arreglo porque recibe su tamaño máximo. En la salida, la línea Ada la escribe el usuario.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    char nombre[20];\n\n    printf(\"Nombre: \");\n    fgets(nombre, sizeof(nombre), stdin);\n    printf(\"Hola, %s\", nombre);\n    return 0;\n}",
+          "output": "Nombre: Ada\nHola, Ada"
+        }
+      ]
+    },
+    {
+      "id": "e3",
+      "group": "m3",
+      "title": "Arreglos multidimensionales",
+      "requires": [
+        "e1",
+        "d7"
+      ],
+      "summary": "Organizar datos en filas y columnas con arreglos multidimensionales.",
+      "prior": "Arreglos y ciclos anidados.",
+      "why": "Las matrices necesitan índices y ciclos anidados. Por eso se ven después de ambos.",
+      "examples": [
+        {
+          "title": "Recorrer una matriz 2x3",
+          "explanation": "El primer índice es la fila y el segundo la columna.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int matriz[2][3] = {{1, 2, 3}, {4, 5, 6}};\n\n    for (int fila = 0; fila < 2; fila++) {\n        for (int col = 0; col < 3; col++) {\n            printf(\"%d\", matriz[fila][col]);\n            if (col < 2) {\n                printf(\" \");\n            }\n        }\n        printf(\"\\n\");\n    }\n    return 0;\n}",
+          "output": "1 2 3\n4 5 6"
+        },
+        {
+          "title": "Sumar toda la matriz",
+          "explanation": "Los dos ciclos permiten visitar cada celda exactamente una vez.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    int matriz[2][3] = {{1, 2, 3}, {4, 5, 6}};\n    int suma = 0;\n\n    for (int fila = 0; fila < 2; fila++) {\n        for (int col = 0; col < 3; col++) {\n            suma += matriz[fila][col];\n        }\n    }\n    printf(\"%d\\n\", suma);\n    return 0;\n}",
+          "output": "21"
+        }
+      ]
+    },
+    {
+      "id": "e4",
+      "group": "m3",
+      "title": "Registros (struct)",
+      "requires": [
+        "e1"
+      ],
+      "summary": "Agrupar varios datos de distinto tipo bajo un mismo registro.",
+      "prior": "Arreglos de una dimensión.",
+      "why": "Los struct agrupan campos relacionados. Se ven después de variables y arreglos para organizar información más rica.",
+      "examples": [
+        {
+          "title": "Un registro de estudiante",
+          "explanation": "Cada campo tiene su propio tipo y se accede con el operador punto.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nstruct Estudiante {\n    char nombre[20];\n    int edad;\n    float promedio;\n};\n\nint main(void) {\n    struct Estudiante e = {\"Ana\", 18, 8.5f};\n\n    printf(\"%s, %d, %.1f\\n\", e.nombre, e.edad, e.promedio);\n    return 0;\n}",
+          "output": "Ana, 18, 8.5"
+        },
+        {
+          "title": "Modificar un campo",
+          "explanation": "Los campos de un struct se comportan como variables normales.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nstruct Persona {\n    char nombre[20];\n    int edad;\n};\n\nint main(void) {\n    struct Persona p = {\"Luis\", 17};\n    p.edad = p.edad + 1;\n\n    printf(\"%s ahora tiene %d años.\\n\", p.nombre, p.edad);\n    return 0;\n}",
+          "output": "Luis ahora tiene 18 años."
+        }
+      ]
+    },
+    {
+      "id": "e5",
+      "group": "m3",
+      "title": "Leer archivos",
+      "requires": [
+        "e2",
+        "e4"
+      ],
+      "summary": "Abrir un archivo de texto, comprobar errores y leer su contenido.",
+      "prior": "Cadenas y registros.",
+      "why": "Leer archivos combina cadenas, registros y control de errores. Se ubica al final de los arreglos porque usa varias piezas.",
+      "examples": [
+        {
+          "title": "Leer líneas con fgets",
+          "explanation": "Siempre comprueba si fopen devolvió NULL y cierra el archivo al terminar.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    FILE *archivo = fopen(\"datos.txt\", \"r\");\n    if (archivo == NULL) {\n        printf(\"No se pudo abrir el archivo.\\n\");\n        return 1;\n    }\n\n    char linea[100];\n    while (fgets(linea, sizeof(linea), archivo) != NULL) {\n        printf(\"%s\", linea);\n    }\n\n    fclose(archivo);\n    return 0;\n}",
+          "output": "Hola\nArchivo"
+        },
+        {
+          "title": "Leer un número",
+          "explanation": "fscanf lee datos con formato, igual que scanf pero desde un archivo.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    FILE *archivo = fopen(\"numero.txt\", \"r\");\n    if (archivo == NULL) {\n        printf(\"No se pudo abrir el archivo.\\n\");\n        return 1;\n    }\n\n    int valor = 0;\n    if (fscanf(archivo, \"%d\", &valor) == 1) {\n        printf(\"Valor: %d\\n\", valor);\n    }\n\n    fclose(archivo);\n    return 0;\n}",
+          "output": "Valor: 42"
+        }
+      ]
+    },
+    {
+      "id": "e6",
+      "group": "m3",
+      "title": "Escribir archivos",
+      "requires": [
+        "e5"
+      ],
+      "summary": "Crear o sobrescribir archivos y guardar texto o datos con fprintf y fputs.",
+      "prior": "Lectura de archivos.",
+      "why": "Escritura y lectura se complementan. Primero se aprende a leer y luego a guardar resultados.",
+      "examples": [
+        {
+          "title": "Escribir líneas con fprintf",
+          "explanation": "El modo w crea el archivo o borra su contenido anterior.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    FILE *archivo = fopen(\"salida.txt\", \"w\");\n    if (archivo == NULL) {\n        printf(\"No se pudo crear el archivo.\\n\");\n        return 1;\n    }\n\n    fprintf(archivo, \"Hola, archivo.\\n\");\n    fclose(archivo);\n\n    printf(\"Archivo escrito.\\n\");\n    return 0;\n}",
+          "output": "Archivo escrito."
+        },
+        {
+          "title": "Agregar sin borrar",
+          "explanation": "El modo a añade contenido al final de un archivo existente.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint main(void) {\n    FILE *archivo = fopen(\"salida.txt\", \"a\");\n    if (archivo == NULL) {\n        printf(\"No se pudo abrir el archivo.\\n\");\n        return 1;\n    }\n\n    fputs(\"Otra línea\\n\", archivo);\n    fclose(archivo);\n\n    printf(\"Línea agregada.\\n\");\n    return 0;\n}",
+          "output": "Línea agregada."
+        }
+      ]
+    },
+    {
+      "id": "f1",
+      "group": "m4",
+      "title": "Definir una función",
+      "requires": [
+        "c7",
+        "d7"
+      ],
+      "summary": "Crear funciones propias para dividir un programa en tareas reutilizables.",
+      "prior": "Bibliotecas y ciclos anidados.",
+      "why": "Las funciones aparecen después de saber usar bibliotecas y controlar bloques. Permiten ordenar programas grandes.",
+      "examples": [
+        {
+          "title": "Función que saluda",
+          "explanation": "Una función void realiza una acción y no devuelve un valor.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nvoid saludar(void) {\n    printf(\"Hola desde una función.\\n\");\n}\n\nint main(void) {\n    saludar();\n    return 0;\n}",
+          "output": "Hola desde una función."
+        },
+        {
+          "title": "Función que imprime una línea",
+          "explanation": "Recibe un parámetro para decidir cuántos caracteres dibujar.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nvoid linea(int cantidad) {\n    for (int i = 0; i < cantidad; i++) {\n        printf(\"-\");\n    }\n    printf(\"\\n\");\n}\n\nint main(void) {\n    linea(4);\n    return 0;\n}",
+          "output": "----"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "group": "m4",
+      "title": "Argumentos y valor de retorno",
+      "requires": [
+        "f1",
+        "e1"
+      ],
+      "summary": "Pasar datos a una función y devolver un resultado con return.",
+      "prior": "Definir funciones y arreglos.",
+      "why": "Los parámetros y el retorno conectan funciones con datos reales. Los arreglos se pasan como referencia y aparecen aquí.",
+      "examples": [
+        {
+          "title": "Sumar dos números con return",
+          "explanation": "La función recibe dos argumentos y devuelve un único resultado.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint sumar(int a, int b) {\n    return a + b;\n}\n\nint main(void) {\n    printf(\"%d\\n\", sumar(3, 4));\n    return 0;\n}",
+          "output": "7"
+        },
+        {
+          "title": "Recorrer un arreglo en una función",
+          "explanation": "Los arreglos se pasan junto con su tamaño para saber cuántos elementos recorrer.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint suma(int valores[], int cantidad) {\n    int total = 0;\n    for (int i = 0; i < cantidad; i++) {\n        total += valores[i];\n    }\n    return total;\n}\n\nint main(void) {\n    int datos[] = {1, 2, 3, 4};\n    printf(\"%d\\n\", suma(datos, 4));\n    return 0;\n}",
+          "output": "10"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "group": "m4",
+      "title": "Recursión",
+      "requires": [
+        "f2",
+        "d5"
+      ],
+      "summary": "Resolver un problema llamando a la misma función con un caso cada vez más pequeño.",
+      "prior": "Funciones con retorno y ciclos while.",
+      "why": "La recursión es lo más abstracto del curso. Requiere dominar funciones y una condición de parada, por eso va al final.",
+      "examples": [
+        {
+          "title": "Factorial recursivo",
+          "explanation": "El caso base detiene las llamadas; el caso recursivo reduce el problema en uno.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nint factorial(int n) {\n    if (n <= 1) {\n        return 1;\n    }\n    return n * factorial(n - 1);\n}\n\nint main(void) {\n    printf(\"%d\\n\", factorial(5));\n    return 0;\n}",
+          "output": "120"
+        },
+        {
+          "title": "Cuenta regresiva",
+          "explanation": "Cada llamada imprime un número y llama a la función con un valor menor.",
+          "language": "c",
+          "code": "#include <stdio.h>\n\nvoid cuenta(int n) {\n    if (n == 0) {\n        printf(\"Fin\\n\");\n        return;\n    }\n    printf(\"%d \", n);\n    cuenta(n - 1);\n}\n\nint main(void) {\n    cuenta(3);\n    return 0;\n}",
+          "output": "3 2 1 Fin"
+        }
+      ]
+    },
+    {
+      "id": "z1",
+      "group": "meta",
+      "title": "Proyecto integrador",
+      "requires": [
+        "e3",
+        "e6",
+        "f3"
+      ],
+      "summary": "Integrar arreglos, archivos y funciones en un pequeño sistema que resuelve un problema completo.",
+      "prior": "Todo el recorrido del mapa.",
+      "why": "Es la meta del curso: combinar las piezas en un proyecto con datos, persistencia y funciones bien separadas.",
+      "examples": [
+        {
+          "title": "Plan del proyecto",
+          "explanation": "Divide el proyecto en funciones pequeñas y guarda datos que puedas revisar.",
+          "language": "pseudocode",
+          "code": "1. Definir struct Estudiante.\n2. Leer estudiantes desde estudiantes.txt con una función.\n3. Calcular promedios con funciones.\n4. Guardar un reporte en reporte.txt.\n5. Probar con un archivo de ejemplo.",
+          "output": "reporte.txt con una línea por estudiante y su promedio."
+        },
+        {
+          "title": "Esqueleto de funciones",
+          "explanation": "Cada función recibe solo lo que necesita y devuelve un resultado claro.",
+          "language": "pseudocode",
+          "code": "leer_estudiantes(arreglo, maximo) -> cantidad\ncalcular_promedio(estudiante) -> decimal\nescribir_reporte(arreglo, cantidad, nombre_archivo)"
+        }
+      ]
+    }
+  ]
+}
