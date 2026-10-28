@@ -11,7 +11,7 @@ interface OnboardingProps {
 const SECONDARY_BUTTON =
   "inline-flex min-h-9 items-center rounded-lg px-3 text-xs font-semibold text-slate-600 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:text-slate-300 dark:hover:bg-slate-800";
 const PRIMARY_BUTTON =
-  "inline-flex min-h-9 items-center rounded-lg bg-indigo-600 px-3.5 text-xs font-semibold text-white hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:ring-offset-slate-900";
+  "inline-flex min-h-9 items-center rounded-lg bg-indigo-600 px-3.5 text-xs font-semibold text-white hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:focus-visible:ring-offset-slate-900";
 
 /** Primera materia de cada semestre: la que se muestra al elegir ese semestre. */
 function coursesBySemester(courses: Course[]): Course[] {

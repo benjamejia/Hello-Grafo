@@ -31,6 +31,28 @@ Abre la URL que muestra Vite, normalmente `http://localhost:5173`.
 | `npm run validate` | Valida ids, dependencias, ciclos y ejemplos del contenido. |
 | `npm run build` | Revisa TypeScript y genera la versión de producción en `dist/`. |
 | `npm run preview` | Sirve la versión de producción localmente. |
+| `npm run check:unused` | Busca archivos, exports y dependencias sin usar (knip). |
+| `npm run check:size` | Compara el tamaño comprimido del sitio contra su presupuesto (requiere `build`). |
+| `npm run check` | Corre todo lo anterior en orden, igual que el pipeline. |
+
+## Pipeline (GitHub Actions)
+
+| Workflow | Cuándo corre | Qué hace |
+| --- | --- | --- |
+| `ci.yml` | En cada pull request y push a `main` | Valida el contenido, busca código sin usar, revisa tipos, compila, aplica el presupuesto de tamaño y corre Lighthouse. |
+| `deploy.yml` | En cada push a `main` (o a mano) | Compila con `BASE_PATH=/<repo>/` y publica en GitHub Pages. |
+
+**Optimización.** El pipeline no reescribe código: mide y frena cambios que empeoran el sitio.
+
+- **Código sin usar:** `knip` falla si queda un archivo, export o dependencia que nadie usa.
+- **Presupuesto de tamaño:** `scripts/check-size.ts` falla si alguna parte del sitio (app, contenido, librerías, CSS) crece más de su límite. Si un aumento está justificado, se sube el límite a propósito en ese archivo.
+- **Lighthouse:** rendimiento ≥ 85, accesibilidad ≥ 95 y buenas prácticas ≥ 95 (`lighthouserc.json`). Los reportes quedan como artefacto del workflow.
+- **División del JavaScript:** `vite.config.ts` separa librerías (`react`, `grafo`), contenido y app. Al publicar contenido nuevo, el navegador reutiliza de su caché las librerías.
+
+**Configuración única en GitHub:**
+
+1. *Settings → Pages → Source*: **GitHub Actions**.
+2. *Settings → Branches → Add rule* para `main`: exigir que pasen los checks de **CI** antes de integrar.
 
 En modo desarrollo, el contenido también se valida al arrancar y los resultados aparecen en la consola del navegador.
 

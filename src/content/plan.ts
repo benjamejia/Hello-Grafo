@@ -9,11 +9,11 @@ import web from "./courses/web.json";
 /** Orden en que aparecen las materias en la interfaz. */
 const SOURCES = [fundamentos, pe, poo, poe, bd, web] as unknown as CourseSource[];
 
-export function qualifyId(ref: string, courseId: string): string {
+function qualifyId(ref: string, courseId: string): string {
   return ref.includes(".") ? ref : `${courseId}.${ref}`;
 }
 
-export function buildPlan(sources: CourseSource[]): Plan {
+function buildPlan(sources: CourseSource[]): Plan {
   const courses: Course[] = [];
   const topics: Topic[] = [];
 

@@ -48,7 +48,7 @@ export function Header({ plan }: HeaderProps) {
         <div className="min-w-0 flex-1 basis-64">
           <div className="flex items-center gap-2.5">
             <span
-              className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm dark:bg-indigo-500 sm:flex"
+              className="hidden h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-indigo-600 text-white shadow-sm dark:bg-indigo-600 sm:flex"
               aria-hidden="true"
             >
               <svg
@@ -116,7 +116,7 @@ export function Header({ plan }: HeaderProps) {
               }
             }}
             disabled={!nextTopic}
-            className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:ring-indigo-400 dark:focus-visible:ring-offset-slate-950 dark:disabled:bg-slate-700 dark:disabled:text-slate-400"
+            className="inline-flex min-h-10 items-center gap-2 rounded-lg bg-indigo-600 px-3 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-indigo-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:cursor-not-allowed disabled:bg-slate-300 disabled:text-slate-600 dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:focus-visible:ring-indigo-400 dark:focus-visible:ring-offset-slate-950 dark:disabled:bg-slate-700 dark:disabled:text-slate-400"
             aria-label={nextTopic ? `Ver mi siguiente paso: ${nextTopic.title}` : "No hay un siguiente paso"}
             title={
               nextTopic

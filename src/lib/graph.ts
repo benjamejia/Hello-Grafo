@@ -94,7 +94,7 @@ export function getVisibleTopics(plan: Plan, filter: CourseFilter): VisibleTopic
  * Temas de la vista más todos sus requisitos, aunque sean de otra materia, en el orden de la ruta.
  * Sirve para sugerir el siguiente paso: si te falta algo de una materia anterior, empieza por ahí.
  */
-export function getStudyCandidates(plan: Plan, filter: CourseFilter): Topic[] {
+function getStudyCandidates(plan: Plan, filter: CourseFilter): Topic[] {
   if (filter === "all") {
     return plan.topics;
   }
@@ -117,15 +117,6 @@ export function getTopicStatus(topic: Topic, progress: Record<string, boolean>):
     return "completed";
   }
   return isTopicAvailable(topic, progress) ? "available" : "pending";
-}
-
-export function getNextAvailableTopic(
-  topics: Topic[],
-  progress: Record<string, boolean>,
-): Topic | undefined {
-  return topics.find(
-    (topic) => progress[topic.id] !== true && isTopicAvailable(topic, progress),
-  );
 }
 
 /**
