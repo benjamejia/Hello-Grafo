@@ -1,9 +1,7 @@
-import type { Course } from "../src/content/types";
-import { validateCourse } from "../src/lib/validateCourse";
-import courseJson from "../src/content/course.json";
+import { plan } from "../src/content/plan";
+import { validatePlan } from "../src/lib/validateCourse";
 
-const course = courseJson as unknown as Course;
-const result = validateCourse(course);
+const result = validatePlan(plan);
 
 if (result.warnings.length > 0) {
   console.warn("\nAvisos:");
@@ -13,8 +11,9 @@ if (result.warnings.length > 0) {
 }
 
 if (result.ok) {
+  const drafts = plan.topics.filter((topic) => topic.draft).length;
   console.log(
-    `\nContenido válido: ${course.topics.length} temas y ${course.groups.length} grupos.\n`,
+    `\nContenido válido: ${plan.topics.length} temas (${drafts} en construcción) en ${plan.courses.length} materias.\n`,
   );
 } else {
   console.error("\nErrores de contenido:");

@@ -1,0 +1,224 @@
+{
+  "id": "poe",
+  "code": "IH050",
+  "title": "Programación Orientada a Eventos",
+  "shortTitle": "POE",
+  "semester": 3,
+  "languages": "C#",
+  "syllabus": "oficial",
+  "color": {
+    "light": "#b45309",
+    "dark": "#fcd34d"
+  },
+  "modules": [
+    { "id": "m1", "name": "Módulo 1 · C# y .NET" },
+    { "id": "m2", "name": "Módulo 2 · POO en C#" },
+    { "id": "m3", "name": "Módulo 3 · Eventos e interfaces gráficas" },
+    { "id": "m4", "name": "Módulo 4 · Bases de datos y C#" }
+  ],
+  "topics": [
+    {
+      "id": "a1",
+      "module": "m1",
+      "title": ".NET y Visual Studio Community",
+      "requires": ["poo.j1"],
+      "summary": "Qué es la plataforma .NET y cómo crear, compilar y ejecutar un proyecto en Visual Studio.",
+      "draft": true
+    },
+    {
+      "id": "a2",
+      "module": "m1",
+      "title": "Repositorios de código (Git y GitHub)",
+      "requires": ["fund.p1"],
+      "summary": "Guardar el historial de tu código y compartirlo. El programa lo pide aunque ninguna materia anterior lo enseña.",
+      "draft": true
+    },
+    {
+      "id": "a3",
+      "module": "m1",
+      "title": "Estructura de una aplicación en C#",
+      "requires": ["a1"],
+      "equivalentTo": ["poo.j1"],
+      "summary": "namespace, class y Main: muy parecido a Java.",
+      "draft": true
+    },
+    {
+      "id": "a4",
+      "module": "m1",
+      "title": "Palabras reservadas, identificadores y operadores",
+      "requires": ["a3", "poo.j2"],
+      "equivalentTo": ["poo.j2"],
+      "summary": "Tipos y operadores de C#. Si sabes Java, casi todo es igual.",
+      "draft": true
+    },
+    {
+      "id": "a5",
+      "module": "m1",
+      "title": "Sentencias de control en C#",
+      "requires": ["a4", "poo.j3"],
+      "equivalentTo": ["poo.j3"],
+      "summary": "if, switch, while, for y el nuevo foreach.",
+      "draft": true
+    },
+    {
+      "id": "a6",
+      "module": "m1",
+      "title": "Manejo de strings en C#",
+      "requires": ["a4", "poo.j4"],
+      "equivalentTo": ["poo.j4"],
+      "summary": "Métodos de string, interpolación con $\"...\" y comparación de cadenas.",
+      "draft": true
+    },
+    {
+      "id": "b1",
+      "module": "m2",
+      "title": "Clases, objetos y métodos en C#",
+      "requires": ["a5", "poo.o1"],
+      "equivalentTo": ["poo.o1"],
+      "summary": "Repaso de POO con la sintaxis de C#.",
+      "draft": true
+    },
+    {
+      "id": "b2",
+      "module": "m2",
+      "title": "Encapsulamiento y propiedades",
+      "requires": ["b1", "poo.o3"],
+      "equivalentTo": ["poo.o3"],
+      "summary": "En C# los getters y setters se escriben como propiedades { get; set; }.",
+      "draft": true
+    },
+    {
+      "id": "b3",
+      "module": "m2",
+      "title": "Herencia y polimorfismo en C#",
+      "requires": ["b2", "poo.o6"],
+      "equivalentTo": ["poo.o5", "poo.o6"],
+      "summary": "virtual, override y base: las palabras de C# para lo que ya viste en Java.",
+      "draft": true
+    },
+    {
+      "id": "b4",
+      "module": "m2",
+      "title": "Abstracción e interfaces en C#",
+      "requires": ["b3", "poo.o7"],
+      "equivalentTo": ["poo.o7"],
+      "summary": "Clases abstractas e interfaces con la sintaxis de C#.",
+      "draft": true
+    },
+    {
+      "id": "b5",
+      "module": "m2",
+      "title": "Colecciones: List, Stack, Queue y Dictionary",
+      "requires": ["b1", "poo.o9"],
+      "equivalentTo": ["poo.o9"],
+      "summary": "Listas, pilas, colas y tablas clave-valor listas para usar.",
+      "draft": true
+    },
+    {
+      "id": "c1",
+      "module": "m3",
+      "title": "Fundamentos de la programación orientada a eventos",
+      "requires": ["b1"],
+      "summary": "El programa ya no sigue un orden fijo: espera a que el usuario haga algo y reacciona.",
+      "draft": true
+    },
+    {
+      "id": "c2",
+      "module": "m3",
+      "title": "Delegados",
+      "requires": ["c1", "b4"],
+      "summary": "Variables que guardan métodos. Son la base de los eventos en C#.",
+      "draft": true
+    },
+    {
+      "id": "c3",
+      "module": "m3",
+      "title": "Métodos anónimos y expresiones lambda",
+      "requires": ["c2"],
+      "summary": "Escribir el método justo donde se necesita, sin darle nombre.",
+      "draft": true
+    },
+    {
+      "id": "c4",
+      "module": "m3",
+      "title": "Diseño de interfaces gráficas",
+      "requires": ["c1"],
+      "summary": "Ventanas, botones y cajas de texto con Windows Forms o WPF.",
+      "draft": true
+    },
+    {
+      "id": "c5",
+      "module": "m3",
+      "title": "Eventos: mouse, teclado, temporizador, foco y propios",
+      "requires": ["c2", "c4"],
+      "summary": "Conectar acciones del usuario y del sistema con el código que debe ejecutarse.",
+      "draft": true
+    },
+    {
+      "id": "c6",
+      "module": "m3",
+      "title": "Tratamiento de excepciones",
+      "requires": ["a5", "poo.o8"],
+      "equivalentTo": ["poo.o8"],
+      "summary": "try, catch y finally para que la aplicación no se cierre ante un error.",
+      "draft": true
+    },
+    {
+      "id": "c7",
+      "module": "m3",
+      "title": "Hilos",
+      "requires": ["c5"],
+      "summary": "Hacer trabajo pesado sin congelar la ventana.",
+      "draft": true
+    },
+    {
+      "id": "c8",
+      "module": "m3",
+      "title": "Manejo de archivos en C#",
+      "requires": ["c6", "pe.e6"],
+      "equivalentTo": ["pe.e5", "pe.e6"],
+      "summary": "Leer y escribir archivos: la misma idea que en C con menos líneas.",
+      "draft": true
+    },
+    {
+      "id": "c9",
+      "module": "m3",
+      "title": "Tablas y gráficos de datos",
+      "requires": ["c4", "b5"],
+      "summary": "Mostrar colecciones en tablas (DataGridView) y gráficas.",
+      "draft": true
+    },
+    {
+      "id": "d1",
+      "module": "m4",
+      "title": "Serialización en JSON y XML",
+      "requires": ["b5", "c8"],
+      "summary": "Convertir objetos a texto para guardarlos o enviarlos, y de vuelta a objetos.",
+      "draft": true
+    },
+    {
+      "id": "d2",
+      "module": "m4",
+      "title": "C# con una base de datos relacional",
+      "requires": ["bd.s2", "c6"],
+      "summary": "Conectarse a SQL Server o MySQL y ejecutar consultas desde C#.",
+      "draft": true
+    },
+    {
+      "id": "d3",
+      "module": "m4",
+      "title": "C# con MongoDB",
+      "requires": ["bd.n1", "d1"],
+      "summary": "Guardar y consultar documentos desde C#.",
+      "draft": true
+    },
+    {
+      "id": "d4",
+      "module": "m4",
+      "title": "CRUD con interfaz gráfica",
+      "requires": ["d2", "c5", "c9"],
+      "summary": "Proyecto integrador: una aplicación de escritorio que crea, lee, edita y borra datos.",
+      "draft": true
+    }
+  ]
+}

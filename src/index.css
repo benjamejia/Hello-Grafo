@@ -7,6 +7,7 @@
   --edge-default: #94a3b8;
   --edge-active: #4338ca;
   --edge-dim: #cbd5e1;
+  --edge-equivalent: #0d9488;
   --map-bg: #f8fafc;
   --node-bg: #ffffff;
   --node-border: #cbd5e1;
@@ -24,6 +25,7 @@
   --edge-default: #64748b;
   --edge-active: #a5b4fc;
   --edge-dim: #334155;
+  --edge-equivalent: #5eead4;
   --map-bg: #020617;
   --node-bg: #0f172a;
   --node-border: #334155;
@@ -167,6 +169,17 @@
 .topic-node--dimmed {
   opacity: 0.22;
   filter: saturate(0.35);
+}
+
+.topic-node--external {
+  border-style: dashed;
+  background: var(--node-bg);
+  opacity: 0.8;
+}
+
+.topic-node--equivalent {
+  outline: 2px dashed var(--edge-equivalent);
+  outline-offset: 3px;
 }
 
 .topic-node--dimmed:hover,
@@ -326,5 +339,72 @@
 
   .topic-node:hover {
     transform: none;
+  }
+}
+
+/* Ficha extendida del tema */
+@layer components {
+  .panel-tab {
+    @apply inline-flex shrink-0 items-center gap-1.5 border-b-2 border-transparent px-3 pb-2 pt-1 text-xs font-semibold text-slate-500 transition-colors hover:text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-indigo-500 dark:text-slate-400 dark:hover:text-slate-100;
+  }
+
+  .panel-tab--active {
+    @apply border-indigo-600 text-indigo-700 dark:border-indigo-400 dark:text-indigo-300;
+  }
+
+  .panel-tab__count {
+    @apply rounded-full bg-slate-100 px-1.5 text-[10px] font-bold text-slate-600 dark:bg-slate-800 dark:text-slate-300;
+  }
+
+  .meta-badge,
+  .level-badge {
+    @apply inline-flex shrink-0 items-center rounded-full border px-2 py-0.5 text-[11px] font-semibold;
+  }
+
+  .meta-badge {
+    @apply border-slate-200 bg-slate-50 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300;
+  }
+
+  .meta-badge--draft {
+    @apply border-amber-300 bg-amber-50 text-amber-800 dark:border-amber-700 dark:bg-amber-950/50 dark:text-amber-300;
+  }
+
+  .level-badge--1 {
+    @apply border-emerald-300 bg-emerald-50 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300;
+  }
+
+  .level-badge--2 {
+    @apply border-sky-300 bg-sky-50 text-sky-800 dark:border-sky-700 dark:bg-sky-950/50 dark:text-sky-300;
+  }
+
+  .level-badge--3 {
+    @apply border-fuchsia-300 bg-fuchsia-50 text-fuchsia-800 dark:border-fuchsia-700 dark:bg-fuchsia-950/50 dark:text-fuchsia-300;
+  }
+}
+
+/* Guía: resalta el elemento del que se está hablando */
+.guide-target {
+  position: relative;
+  z-index: 45;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 0 0 3px #6366f1,
+    0 0 0 8px rgba(99, 102, 241, 0.25);
+  transition: box-shadow 200ms ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .guide-avatar {
+    animation: guide-bob 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes guide-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
   }
 }

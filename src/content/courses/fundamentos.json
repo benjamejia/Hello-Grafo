@@ -1,0 +1,168 @@
+{
+  "id": "fund",
+  "code": null,
+  "title": "Antes de empezar",
+  "shortTitle": "Previos",
+  "semester": 0,
+  "languages": "Ninguno",
+  "syllabus": "propio",
+  "color": {
+    "light": "#0e7490",
+    "dark": "#67e8f9"
+  },
+  "modules": [
+    {
+      "id": "previos",
+      "name": "Conocimientos previos"
+    }
+  ],
+  "topics": [
+    {
+      "id": "p1",
+      "module": "previos",
+      "title": "Manejo básico de la computadora",
+      "requires": [],
+      "summary": "Saber moverte por el sistema operativo, usar teclado y ratón, y organizar tus archivos.",
+      "prior": "Ninguno. Solo necesitas acceso a una computadora y ganas de practicar.",
+      "why": "Todo el curso ocurre en una computadora. Organizar archivos y usar el teclado ahorra tiempo desde la primera práctica.",
+      "difficulty": 1,
+      "estimatedHours": 2,
+      "examples": [
+        {
+          "title": "Tu carpeta de trabajo",
+          "explanation": "Crea una carpeta por materia y usa nombres de archivo claros. Así encontrarás tus programas y respaldos.",
+          "language": "text",
+          "code": "1. Abre el explorador de archivos.\n2. Crea una carpeta llamada \"ProgramacionC\".\n3. Guarda cada práctica con un nombre como \"practica01.c\".\n4. Copia la carpeta a una USB o a la nube al terminar."
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "module": "previos",
+      "title": "Aritmética básica",
+      "requires": [],
+      "summary": "Sumar, restar, multiplicar y dividir números, respetando la jerarquía de las operaciones.",
+      "prior": "Ninguno. Es la aritmética que ya usas todos los días.",
+      "why": "Los programas trabajan con números desde el primer cálculo. Esta base se reutiliza en fórmulas, condiciones y ciclos.",
+      "difficulty": 1,
+      "estimatedHours": 2,
+      "examples": [
+        {
+          "title": "Jerarquía de operaciones",
+          "explanation": "La multiplicación se resuelve antes que la suma. Los paréntesis cambian el orden.",
+          "language": "text",
+          "code": "Expresión: 2 + 3 * 4\nPrimero: 3 * 4 = 12\nDespués: 2 + 12 = 14\n\nExpresión: (2 + 3) * 4\nResultado: 20",
+          "output": "14 y 20"
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "module": "previos",
+      "title": "Comprensión lectora y escritura",
+      "requires": [],
+      "summary": "Leer un enunciado e identificar qué datos te dan, qué te piden y qué pasos faltan.",
+      "prior": "Ninguno. Se practica con cualquier texto breve.",
+      "why": "Antes de escribir código hay que entender el problema. La comprensión lectora es el primer filtro de un algoritmo.",
+      "difficulty": 1,
+      "estimatedHours": 2,
+      "examples": [
+        {
+          "title": "Separar datos, pregunta y plan",
+          "explanation": "Subraya la información clave antes de pensar en código.",
+          "language": "text",
+          "code": "Enunciado: \"Un curso tiene 30 alumnos y cada uno paga $150. ¿Cuánto se recauda?\"\n\nDatos: 30 alumnos y $150 por alumno.\nPregunta: total recaudado.\nPlan: multiplicar 30 por 150.",
+          "output": "Plan: 30 × 150 = 4500."
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "module": "previos",
+      "title": "Pensamiento lógico",
+      "requires": [],
+      "summary": "Ordenar ideas, reconocer condiciones y construir pasos que siempre lleguen a una respuesta.",
+      "prior": "Ninguno. Puedes entrenarlo con situaciones cotidianas.",
+      "why": "Programar es tomar decisiones lógicas. Este pensamiento se usa al diseñar algoritmos, condiciones y ciclos.",
+      "difficulty": 2,
+      "estimatedHours": 3,
+      "examples": [
+        {
+          "title": "Una decisión cotidiana",
+          "explanation": "La condición divide el plan en dos caminos posibles.",
+          "language": "pseudocode",
+          "code": "si hay paraguas entonces\n  salir con paraguas\nsi no\n  revisar el pronóstico\nfin si"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "module": "previos",
+      "title": "Álgebra básica",
+      "requires": [
+        "p2"
+      ],
+      "summary": "Usar variables y fórmulas sencillas para representar cantidades y despejar valores.",
+      "prior": "Aritmética básica y operaciones con números.",
+      "why": "Las fórmulas aparecen en variables y en problemas de cálculo. Álgebra permite escribir una solución general.",
+      "difficulty": 1,
+      "estimatedHours": 3,
+      "examples": [
+        {
+          "title": "Área de un rectángulo",
+          "explanation": "Una fórmula resume una operación que puedes repetir con cualquier medida.",
+          "language": "pseudocode",
+          "code": "base <- 8\naltura <- 5\narea <- base * altura\nescribir area",
+          "output": "40"
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "module": "previos",
+      "title": "Inglés técnico mínimo",
+      "requires": [],
+      "summary": "Reconocer palabras frecuentes de la documentación y de los mensajes del compilador.",
+      "prior": "Ninguno. No necesitas hablar inglés con fluidez.",
+      "why": "Los errores de C suelen estar en inglés. Entender palabras clave acelera la depuración.",
+      "difficulty": 1,
+      "estimatedHours": 3,
+      "examples": [
+        {
+          "title": "Palabras que verás seguido",
+          "explanation": "Muchas aparecen en mensajes del compilador y en la biblioteca estándar.",
+          "language": "text",
+          "code": "error      -> error que impide compilar\nwarning    -> aviso; el programa puede compilar\ninclude    -> incluir una biblioteca\nreturn     -> devolver un valor o terminar una función\ninput      -> entrada de datos\noutput     -> salida de datos"
+        }
+      ]
+    },
+    {
+      "id": "p7",
+      "module": "previos",
+      "title": "Sistemas de numeración (binario)",
+      "requires": [
+        "p2"
+      ],
+      "summary": "Entender cómo se escribe un número en decimal y en binario usando potencias de 2.",
+      "prior": "Aritmética básica y divisiones entre 2.",
+      "why": "Los tipos de datos tienen límites porque la computadora guarda bits. Binario explica esos límites antes de ver int y float.",
+      "difficulty": 2,
+      "estimatedHours": 3,
+      "examples": [
+        {
+          "title": "Convertir 13 a binario",
+          "explanation": "Divide entre 2 y lee los residuos de abajo hacia arriba.",
+          "language": "text",
+          "code": "13 ÷ 2 = 6, residuo 1\n 6 ÷ 2 = 3, residuo 0\n 3 ÷ 2 = 1, residuo 1\n 1 ÷ 2 = 0, residuo 1\n\nResiduos de abajo hacia arriba: 1101",
+          "output": "13 en binario = 1101"
+        },
+        {
+          "title": "Bits y bytes",
+          "explanation": "Un bit es un 0 o un 1. Ocho bits forman un byte.",
+          "language": "text",
+          "code": "1 byte = 8 bits\nCon 8 bits se representan 2^8 = 256 combinaciones.\nPor eso los enteros tienen límites: no hay espacio infinito."
+        }
+      ]
+    }
+  ]
+}

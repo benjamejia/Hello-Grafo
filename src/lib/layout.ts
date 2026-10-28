@@ -1,5 +1,5 @@
 import dagre from "@dagrejs/dagre";
-import type { Course } from "../content/types";
+import type { Topic } from "../content/types";
 
 export const NODE_WIDTH = 240;
 export const NODE_HEIGHT = 108;
@@ -10,7 +10,8 @@ export interface LayoutResult {
   height: number;
 }
 
-export function calculateLayout(course: Course): LayoutResult {
+/** Calcula posiciones solo para los temas visibles; ignora requisitos fuera de la vista. */
+export function calculateLayout(topics: Topic[]): LayoutResult {
   const graph = new dagre.graphlib.Graph();
   graph.setDefaultEdgeLabel(() => ({}));
   graph.setGraph({
@@ -21,20 +22,24 @@ export function calculateLayout(course: Course): LayoutResult {
     marginy: 32,
   });
 
-  for (const topic of course.topics) {
+  const ids = new Set(topics.map((topic) => topic.id));
+
+  for (const topic of topics) {
     graph.setNode(topic.id, { width: NODE_WIDTH, height: NODE_HEIGHT });
   }
 
-  for (const topic of course.topics) {
+  for (const topic of topics) {
     for (const requirementId of topic.requires) {
-      graph.setEdge(requirementId, topic.id);
+      if (ids.has(requirementId)) {
+        graph.setEdge(requirementId, topic.id);
+      }
     }
   }
 
   dagre.layout(graph);
 
   const positions: Record<string, { x: number; y: number }> = {};
-  for (const topic of course.topics) {
+  for (const topic of topics) {
     const node = graph.node(topic.id) as { x: number; y: number } | undefined;
     if (node) {
       positions[topic.id] = {

@@ -1,201 +1,50 @@
 {
-  "id": "programacion-estructurada",
+  "id": "pe",
+  "code": "F0092",
   "title": "Programación Estructurada",
-  "subtitle": "Mapa de aprendizaje en lenguaje C",
-  "groups": [
-    {
-      "id": "previos",
-      "name": "Antes de empezar",
-      "color": {
-        "light": "#0e7490",
-        "dark": "#67e8f9"
-      }
-    },
+  "shortTitle": "Estructurada",
+  "semester": 1,
+  "languages": "C",
+  "syllabus": "oficial",
+  "color": {
+    "light": "#1d4ed8",
+    "dark": "#93c5fd"
+  },
+  "modules": [
     {
       "id": "m1",
-      "name": "Módulo 1",
-      "color": {
-        "light": "#1d4ed8",
-        "dark": "#93c5fd"
-      }
+      "name": "Módulo 1 · Introducción"
     },
     {
       "id": "m2",
-      "name": "Módulo 2",
-      "color": {
-        "light": "#6d28d9",
-        "dark": "#c4b5fd"
-      }
+      "name": "Módulo 2 · Control de flujo"
     },
     {
       "id": "m3",
-      "name": "Módulo 3",
-      "color": {
-        "light": "#b45309",
-        "dark": "#fcd34d"
-      }
+      "name": "Módulo 3 · Datos y archivos"
     },
     {
       "id": "m4",
-      "name": "Módulo 4",
-      "color": {
-        "light": "#be123c",
-        "dark": "#fda4af"
-      }
+      "name": "Módulo 4 · Funciones"
     },
     {
       "id": "meta",
-      "name": "Meta",
-      "color": {
-        "light": "#047857",
-        "dark": "#6ee7b7"
-      }
+      "name": "Proyecto final"
     }
   ],
   "topics": [
     {
-      "id": "p1",
-      "group": "previos",
-      "title": "Manejo básico de la computadora",
-      "requires": [],
-      "summary": "Saber moverte por el sistema operativo, usar teclado y ratón, y organizar tus archivos.",
-      "prior": "Ninguno. Solo necesitas acceso a una computadora y ganas de practicar.",
-      "why": "Todo el curso ocurre en una computadora. Organizar archivos y usar el teclado ahorra tiempo desde la primera práctica.",
-      "examples": [
-        {
-          "title": "Tu carpeta de trabajo",
-          "explanation": "Crea una carpeta por materia y usa nombres de archivo claros. Así encontrarás tus programas y respaldos.",
-          "language": "text",
-          "code": "1. Abre el explorador de archivos.\n2. Crea una carpeta llamada \"ProgramacionC\".\n3. Guarda cada práctica con un nombre como \"practica01.c\".\n4. Copia la carpeta a una USB o a la nube al terminar."
-        }
-      ]
-    },
-    {
-      "id": "p2",
-      "group": "previos",
-      "title": "Aritmética básica",
-      "requires": [],
-      "summary": "Sumar, restar, multiplicar y dividir números, respetando la jerarquía de las operaciones.",
-      "prior": "Ninguno. Es la aritmética que ya usas todos los días.",
-      "why": "Los programas trabajan con números desde el primer cálculo. Esta base se reutiliza en fórmulas, condiciones y ciclos.",
-      "examples": [
-        {
-          "title": "Jerarquía de operaciones",
-          "explanation": "La multiplicación se resuelve antes que la suma. Los paréntesis cambian el orden.",
-          "language": "text",
-          "code": "Expresión: 2 + 3 * 4\nPrimero: 3 * 4 = 12\nDespués: 2 + 12 = 14\n\nExpresión: (2 + 3) * 4\nResultado: 20",
-          "output": "14 y 20"
-        }
-      ]
-    },
-    {
-      "id": "p3",
-      "group": "previos",
-      "title": "Comprensión lectora y escritura",
-      "requires": [],
-      "summary": "Leer un enunciado e identificar qué datos te dan, qué te piden y qué pasos faltan.",
-      "prior": "Ninguno. Se practica con cualquier texto breve.",
-      "why": "Antes de escribir código hay que entender el problema. La comprensión lectora es el primer filtro de un algoritmo.",
-      "examples": [
-        {
-          "title": "Separar datos, pregunta y plan",
-          "explanation": "Subraya la información clave antes de pensar en código.",
-          "language": "text",
-          "code": "Enunciado: \"Un curso tiene 30 alumnos y cada uno paga $150. ¿Cuánto se recauda?\"\n\nDatos: 30 alumnos y $150 por alumno.\nPregunta: total recaudado.\nPlan: multiplicar 30 por 150.",
-          "output": "Plan: 30 × 150 = 4500."
-        }
-      ]
-    },
-    {
-      "id": "p4",
-      "group": "previos",
-      "title": "Pensamiento lógico",
-      "requires": [],
-      "summary": "Ordenar ideas, reconocer condiciones y construir pasos que siempre lleguen a una respuesta.",
-      "prior": "Ninguno. Puedes entrenarlo con situaciones cotidianas.",
-      "why": "Programar es tomar decisiones lógicas. Este pensamiento se usa al diseñar algoritmos, condiciones y ciclos.",
-      "examples": [
-        {
-          "title": "Una decisión cotidiana",
-          "explanation": "La condición divide el plan en dos caminos posibles.",
-          "language": "pseudocode",
-          "code": "si hay paraguas entonces\n  salir con paraguas\nsi no\n  revisar el pronóstico\nfin si"
-        }
-      ]
-    },
-    {
-      "id": "p5",
-      "group": "previos",
-      "title": "Álgebra básica",
-      "requires": [
-        "p2"
-      ],
-      "summary": "Usar variables y fórmulas sencillas para representar cantidades y despejar valores.",
-      "prior": "Aritmética básica y operaciones con números.",
-      "why": "Las fórmulas aparecen en variables y en problemas de cálculo. Álgebra permite escribir una solución general.",
-      "examples": [
-        {
-          "title": "Área de un rectángulo",
-          "explanation": "Una fórmula resume una operación que puedes repetir con cualquier medida.",
-          "language": "pseudocode",
-          "code": "base <- 8\naltura <- 5\narea <- base * altura\nescribir area",
-          "output": "40"
-        }
-      ]
-    },
-    {
-      "id": "p6",
-      "group": "previos",
-      "title": "Inglés técnico mínimo",
-      "requires": [],
-      "summary": "Reconocer palabras frecuentes de la documentación y de los mensajes del compilador.",
-      "prior": "Ninguno. No necesitas hablar inglés con fluidez.",
-      "why": "Los errores de C suelen estar en inglés. Entender palabras clave acelera la depuración.",
-      "examples": [
-        {
-          "title": "Palabras que verás seguido",
-          "explanation": "Muchas aparecen en mensajes del compilador y en la biblioteca estándar.",
-          "language": "text",
-          "code": "error      -> error que impide compilar\nwarning    -> aviso; el programa puede compilar\ninclude    -> incluir una biblioteca\nreturn     -> devolver un valor o terminar una función\ninput      -> entrada de datos\noutput     -> salida de datos"
-        }
-      ]
-    },
-    {
-      "id": "p7",
-      "group": "previos",
-      "title": "Sistemas de numeración (binario)",
-      "requires": [
-        "p2"
-      ],
-      "summary": "Entender cómo se escribe un número en decimal y en binario usando potencias de 2.",
-      "prior": "Aritmética básica y divisiones entre 2.",
-      "why": "Los tipos de datos tienen límites porque la computadora guarda bits. Binario explica esos límites antes de ver int y float.",
-      "examples": [
-        {
-          "title": "Convertir 13 a binario",
-          "explanation": "Divide entre 2 y lee los residuos de abajo hacia arriba.",
-          "language": "text",
-          "code": "13 ÷ 2 = 6, residuo 1\n 6 ÷ 2 = 3, residuo 0\n 3 ÷ 2 = 1, residuo 1\n 1 ÷ 2 = 0, residuo 1\n\nResiduos de abajo hacia arriba: 1101",
-          "output": "13 en binario = 1101"
-        },
-        {
-          "title": "Bits y bytes",
-          "explanation": "Un bit es un 0 o un 1. Ocho bits forman un byte.",
-          "language": "text",
-          "code": "1 byte = 8 bits\nCon 8 bits se representan 2^8 = 256 combinaciones.\nPor eso los enteros tienen límites: no hay espacio infinito."
-        }
-      ]
-    },
-    {
       "id": "a1",
-      "group": "m1",
+      "module": "m1",
       "title": "Historia de las computadoras",
       "requires": [
-        "p1"
+        "fund.p1"
       ],
       "summary": "Conocer cómo pasaron las computadoras de máquinas mecánicas a circuitos electrónicos y software.",
       "prior": "Manejo básico de la computadora.",
       "why": "La historia explica por qué existen los lenguajes y las herramientas actuales. Es un buen punto de entrada antes de hablar de paradigmas.",
+      "difficulty": 1,
+      "estimatedHours": 1,
       "examples": [
         {
           "title": "Línea de tiempo breve",
@@ -207,7 +56,7 @@
     },
     {
       "id": "a2",
-      "group": "m1",
+      "module": "m1",
       "title": "Paradigmas y lenguajes",
       "requires": [
         "a1"
@@ -215,6 +64,8 @@
       "summary": "Distinguir formas de organizar programas y cómo se relacionan con los lenguajes.",
       "prior": "Historia de las computadoras.",
       "why": "Antes de estudiar C conviene saber qué es la programación estructurada y cómo se diferencia de otros paradigmas.",
+      "difficulty": 1,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Estructurada frente a objetos",
@@ -226,7 +77,7 @@
     },
     {
       "id": "a3",
-      "group": "m1",
+      "module": "m1",
       "title": "Compiladores e intérpretes",
       "requires": [
         "a2"
@@ -234,6 +85,8 @@
       "summary": "Entender el viaje del código fuente al programa que se ejecuta.",
       "prior": "Paradigmas y lenguajes.",
       "why": "C es un lenguaje compilado. Saber qué hace el compilador ayuda a interpretar errores y a preparar el entorno.",
+      "difficulty": 1,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Compilar o interpretar",
@@ -245,15 +98,17 @@
     },
     {
       "id": "b1",
-      "group": "m1",
+      "module": "m1",
       "title": "Algoritmo",
       "requires": [
-        "p3",
-        "p4"
+        "fund.p3",
+        "fund.p4"
       ],
       "summary": "Diseñar una secuencia finita y ordenada de pasos que resuelve un problema.",
       "prior": "Comprensión lectora y pensamiento lógico.",
       "why": "El algoritmo es la idea que luego se escribe en seudocódigo y, más tarde, en C. Primero se piensa la solución.",
+      "difficulty": 1,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Algoritmo para calcular un promedio",
@@ -266,7 +121,7 @@
     },
     {
       "id": "b2",
-      "group": "m1",
+      "module": "m1",
       "title": "Seudocódigo",
       "requires": [
         "b1"
@@ -274,6 +129,8 @@
       "summary": "Escribir algoritmos con reglas simples, sin preocuparte todavía por la sintaxis de C.",
       "prior": "Qué es un algoritmo.",
       "why": "El seudocódigo va antes de C: primero se ordena la lógica sin pelear con la sintaxis. Ese orden evita aprender dos cosas nuevas a la vez.",
+      "difficulty": 1,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Sumar dos números",
@@ -286,7 +143,7 @@
     },
     {
       "id": "b3",
-      "group": "m1",
+      "module": "m1",
       "title": "Método para resolver problemas",
       "requires": [
         "b1"
@@ -294,6 +151,8 @@
       "summary": "Aplicar un método: entender, planear, escribir, probar y corregir.",
       "prior": "Qué es un algoritmo.",
       "why": "Programar no empieza en el teclado. Este método ordena el trabajo y se repite en todos los temas siguientes.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Cinco pasos antes de entregar",
@@ -305,7 +164,7 @@
     },
     {
       "id": "b4",
-      "group": "m1",
+      "module": "m1",
       "title": "Asignaciones, condiciones y ciclos",
       "requires": [
         "b2",
@@ -314,6 +173,8 @@
       "summary": "Comprender asignación, decisión y repetición, los tres bloques de la programación estructurada.",
       "prior": "Seudocódigo y método de resolución.",
       "why": "Estas estructuras son la base común de C y de cualquier lenguaje. Aquí se aprenden sin depender de la sintaxis.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Sumar los números pares del 1 al 5",
@@ -333,15 +194,17 @@
     },
     {
       "id": "b5",
-      "group": "m1",
+      "module": "m1",
       "title": "Problemas de fórmulas clásicas",
       "requires": [
         "b4",
-        "p5"
+        "fund.p5"
       ],
       "summary": "Traducir fórmulas conocidas a una secuencia de instrucciones que la computadora puede ejecutar.",
       "prior": "Estructuras básicas y álgebra.",
       "why": "Las fórmulas clásicas conectan matemáticas con código. Se ubican después de las estructuras para poder leer, calcular e imprimir.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Área de un círculo",
@@ -354,7 +217,7 @@
     },
     {
       "id": "c1",
-      "group": "m1",
+      "module": "m1",
       "title": "Estructura de un programa en C",
       "requires": [
         "b2",
@@ -363,6 +226,8 @@
       "summary": "Reconocer las partes mínimas de un programa en C: bibliotecas, main, llaves y punto y coma.",
       "prior": "Seudocódigo y proceso de compilación.",
       "why": "C aparece después del seudocódigo para no aprender lógica y sintaxis al mismo tiempo. Aquí se traduce una idea ya conocida.",
+      "difficulty": 1,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Hola, mundo",
@@ -382,7 +247,7 @@
     },
     {
       "id": "c2",
-      "group": "m1",
+      "module": "m1",
       "title": "IDE: editar, compilar y ejecutar",
       "requires": [
         "c1"
@@ -390,6 +255,8 @@
       "summary": "Editar, compilar y ejecutar un programa usando un entorno integrado.",
       "prior": "Estructura de un programa en C.",
       "why": "Necesitas un ciclo de trabajo repetible: escribir, compilar, leer errores y ejecutar. El IDE lo reúne en un solo lugar.",
+      "difficulty": 1,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Ciclo en un IDE",
@@ -401,15 +268,17 @@
     },
     {
       "id": "c3",
-      "group": "m1",
+      "module": "m1",
       "title": "Depurar errores",
       "requires": [
         "c2",
-        "p6"
+        "fund.p6"
       ],
       "summary": "Leer los mensajes del compilador y distinguir errores de sintaxis, enlace y lógica.",
       "prior": "IDE e inglés técnico mínimo.",
       "why": "Depurar es parte normal de programar. Se ve temprano para que un error no detenga el aprendizaje.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Un error que sí compila",
@@ -428,7 +297,7 @@
     },
     {
       "id": "c4",
-      "group": "m1",
+      "module": "m1",
       "title": "Entrada y salida por consola",
       "requires": [
         "c2"
@@ -436,6 +305,8 @@
       "summary": "Mostrar resultados con printf y leer datos con scanf.",
       "prior": "IDE y compilación.",
       "why": "Entrada y salida van antes de variables para que puedas ver resultados desde el inicio. Un programa sin salida es difícil de comprobar.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Leer una edad",
@@ -451,20 +322,79 @@
           "code": "#include <stdio.h>\n\nint main(void) {\n    printf(\"Pi: %.2f\\n\", 3.14159);\n    printf(\"Entero: %05d\\n\", 42);\n    return 0;\n}",
           "output": "Pi: 3.14\nEntero: 00042"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Olvidar el & en scanf: scanf(\"%d\", edad);",
+          "fix": "scanf necesita la dirección de la variable: scanf(\"%d\", &edad). Con cadenas (char[]) no se pone &."
+        },
+        {
+          "mistake": "Usar el especificador equivocado, como %d para un float.",
+          "fix": "%d para int, %f para float, %lf para double en scanf, %c para char y %s para cadenas."
+        },
+        {
+          "mistake": "scanf(\"%c\") parece \"saltarse\" la lectura.",
+          "fix": "Quedó un Enter en el búfer de la lectura anterior. Escribe un espacio antes: scanf(\" %c\", &opcion)."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Pide un nombre (una palabra) y una edad, y saluda: \"Hola Ana, tienes 19 años\"."
+        },
+        {
+          "level": 2,
+          "prompt": "Pide el precio de un producto y la cantidad; muestra el total con 2 decimales.",
+          "hint": "Usa %.2f en printf."
+        },
+        {
+          "level": 3,
+          "prompt": "Lee una hora en formato hh:mm y muéstrala como minutos desde la medianoche.",
+          "hint": "scanf acepta texto fijo en el formato: scanf(\"%d:%d\", &h, &m)."
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html"
+        },
+        {
+          "title": "OnlineGDB: compila y ejecuta C en el navegador",
+          "type": "herramienta",
+          "url": "https://www.onlinegdb.com/online_c_compiler"
+        },
+        {
+          "title": "Referencia de printf (cppreference, en inglés)",
+          "type": "lectura",
+          "url": "https://en.cppreference.com/w/c/io/fprintf"
+        },
+        {
+          "title": "VozMediano (2017). Aprender a programar en C. De 0 a 99",
+          "type": "libro",
+          "note": "Bibliografía básica de la materia. Busca la sección de entrada y salida estándar."
+        }
+      ],
+      "checklist": [
+        "Puedo mostrar texto y variables con printf usando el especificador correcto.",
+        "Puedo leer números con scanf y sé por qué lleva &.",
+        "Puedo controlar cuántos decimales se muestran (%.2f)."
       ]
     },
     {
       "id": "c5",
-      "group": "m1",
+      "module": "m1",
       "title": "Variables y tipos de datos",
       "requires": [
         "c4",
-        "p5",
-        "p7"
+        "fund.p5",
+        "fund.p7"
       ],
       "summary": "Declarar variables y elegir el tipo adecuado: enteros, decimales y caracteres.",
       "prior": "Entrada/salida, álgebra y binario.",
       "why": "Los tipos tienen límites que se entienden con binario. Se ven después de la salida para poder imprimir y comprobar cada valor.",
+      "difficulty": 1,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Tres tipos básicos",
@@ -484,15 +414,17 @@
     },
     {
       "id": "c6",
-      "group": "m1",
+      "module": "m1",
       "title": "Expresiones y operadores",
       "requires": [
         "c5",
-        "p2"
+        "fund.p2"
       ],
       "summary": "Combinar valores con operadores aritméticos, de asignación y de incremento.",
       "prior": "Variables y tipos, aritmética.",
       "why": "Con variables ya puedes construir expresiones. Antes de decidir o repetir, necesitas calcular y comparar valores.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "División entera y residuo",
@@ -512,7 +444,7 @@
     },
     {
       "id": "c7",
-      "group": "m1",
+      "module": "m1",
       "title": "Biblioteca de funciones",
       "requires": [
         "c6"
@@ -520,6 +452,8 @@
       "summary": "Usar funciones ya hechas de la biblioteca estándar y saber qué archivo incluir.",
       "prior": "Expresiones y operadores.",
       "why": "Las bibliotecas evitan reescribir lo que ya existe. Conocerlas prepara el camino para crear tus propias funciones.",
+      "difficulty": 2,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "stdlib y ctype",
@@ -539,15 +473,17 @@
     },
     {
       "id": "d1",
-      "group": "m2",
+      "module": "m2",
       "title": "Expresiones booleanas",
       "requires": [
         "c6",
-        "p4"
+        "fund.p4"
       ],
       "summary": "Construir condiciones con comparaciones y operadores lógicos que producen verdadero o falso.",
       "prior": "Expresiones y pensamiento lógico.",
       "why": "El if necesita una condición. Las expresiones booleanas se ven antes de las decisiones para separar el cálculo de la elección.",
+      "difficulty": 2,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Comparar y combinar",
@@ -567,7 +503,7 @@
     },
     {
       "id": "d2",
-      "group": "m2",
+      "module": "m2",
       "title": "if / if-else",
       "requires": [
         "d1"
@@ -575,6 +511,8 @@
       "summary": "Tomar decisiones con if e if-else según una condición.",
       "prior": "Expresiones booleanas.",
       "why": "El if aparece antes de los ciclos: primero se domina elegir un camino y después repetir acciones.",
+      "difficulty": 1,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Mayoría de edad",
@@ -590,11 +528,57 @@
           "code": "#include <stdio.h>\n\nint main(void) {\n    int numero = 5;\n\n    if (numero > 0) {\n        printf(\"Positivo\\n\");\n    }\n    return 0;\n}",
           "output": "Positivo"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Escribir if (x = 5) en lugar de if (x == 5).",
+          "fix": "= asigna y == compara. Con = la condición vale lo asignado: 5 es verdadero y el if siempre entra."
+        },
+        {
+          "mistake": "Poner punto y coma después del if: if (x > 0);",
+          "fix": "El ; cierra el if ahí mismo y el bloque de abajo se ejecuta siempre."
+        },
+        {
+          "mistake": "Olvidar las llaves y creer que dos líneas están dentro del if.",
+          "fix": "Sin llaves solo la primera instrucción pertenece al if. Usa llaves siempre, aunque sea una línea."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Lee un número e indica si es positivo, negativo o cero."
+        },
+        {
+          "level": 2,
+          "prompt": "Lee una calificación de 0 a 100 y muestra si aprobó (60 o más). Si el valor no es válido, avisa."
+        },
+        {
+          "level": 3,
+          "prompt": "Lee tres números y muestra el mayor.",
+          "hint": "Guarda el mayor en una variable y compáralo con cada número."
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html"
+        },
+        {
+          "title": "Sznajdleder (2017). Programación Estructurada a fondo",
+          "type": "libro",
+          "note": "Bibliografía básica. Busca el capítulo de estructuras de decisión."
+        }
+      ],
+      "checklist": [
+        "Distingo = (asignar) de == (comparar).",
+        "Puedo escribir un if-else con condiciones compuestas (&&, ||).",
+        "Puedo predecir qué rama se ejecuta para un valor dado."
       ]
     },
     {
       "id": "d3",
-      "group": "m2",
+      "module": "m2",
       "title": "switch / case",
       "requires": [
         "d2"
@@ -602,6 +586,8 @@
       "summary": "Elegir entre varios casos exactos con switch, case, break y default.",
       "prior": "if / if-else.",
       "why": "Switch complementa el if cuando hay varias opciones discretas. Se ve después de las decisiones básicas.",
+      "difficulty": 2,
+      "estimatedHours": 2,
       "examples": [
         {
           "title": "Elegir una opción",
@@ -621,7 +607,7 @@
     },
     {
       "id": "d4",
-      "group": "m2",
+      "module": "m2",
       "title": "Decisiones anidadas",
       "requires": [
         "d2"
@@ -629,6 +615,8 @@
       "summary": "Anidar decisiones y usar else if para evaluar varios rangos en orden.",
       "prior": "if / if-else.",
       "why": "Las decisiones anidadas permiten clasificar casos. Se practican antes de combinarlas con ciclos.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Clasificar una nota",
@@ -648,7 +636,7 @@
     },
     {
       "id": "d5",
-      "group": "m2",
+      "module": "m2",
       "title": "while y do-while",
       "requires": [
         "d2",
@@ -657,6 +645,8 @@
       "summary": "Repetir instrucciones mientras se cumple una condición con while y do-while.",
       "prior": "Decisiones y expresiones.",
       "why": "Los ciclos aparecen después del if porque repiten decisiones. Primero while, que evalúa antes de entrar.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Cuenta regresiva con while",
@@ -676,7 +666,7 @@
     },
     {
       "id": "d6",
-      "group": "m2",
+      "module": "m2",
       "title": "Ciclo for",
       "requires": [
         "d5"
@@ -684,6 +674,8 @@
       "summary": "Usar for cuando conoces la inicialización, la condición y el avance del ciclo.",
       "prior": "while y do-while.",
       "why": "El for hace explícito el recorrido y prepara los arreglos, que se visitan con índices.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Sumar del 1 al 5",
@@ -699,11 +691,57 @@
           "code": "#include <stdio.h>\n\nint main(void) {\n    for (int i = 1; i <= 3; i++) {\n        printf(\"3 x %d = %d\\n\", i, 3 * i);\n    }\n    return 0;\n}",
           "output": "3 x 1 = 3\n3 x 2 = 6\n3 x 3 = 9"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Dar una vuelta de más: for (i = 0; i <= n; i++) con un arreglo de n elementos.",
+          "fix": "Si empiezas en 0, la condición es i < n. Pruébalo a mano con n = 3."
+        },
+        {
+          "mistake": "Modificar la variable de control dentro del ciclo.",
+          "fix": "Deja que solo el tercer término (i++) cambie i. Si necesitas otra lógica, usa while."
+        },
+        {
+          "mistake": "Poner ; al final: for (i = 0; i < 10; i++);",
+          "fix": "El ciclo da sus vueltas sin hacer nada y el bloque de abajo se ejecuta una sola vez."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Imprime los números del 1 al 10 y luego del 10 al 1."
+        },
+        {
+          "level": 2,
+          "prompt": "Lee n y calcula 1 + 2 + … + n con un ciclo. Compara tu resultado con n(n+1)/2."
+        },
+        {
+          "level": 3,
+          "prompt": "Imprime la tabla de multiplicar de un número con las columnas alineadas.",
+          "hint": "printf(\"%2d x %2d = %3d\\n\", n, i, n * i);"
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html"
+        },
+        {
+          "title": "El ciclo for en C (cppreference, en inglés)",
+          "type": "lectura",
+          "url": "https://en.cppreference.com/w/c/language/for"
+        }
+      ],
+      "checklist": [
+        "Puedo decir cuántas vueltas da un for sin ejecutarlo.",
+        "Sé cuándo conviene for y cuándo while.",
+        "Puedo acumular sumas y conteos dentro de un ciclo."
       ]
     },
     {
       "id": "d7",
-      "group": "m2",
+      "module": "m2",
       "title": "Ciclos anidados",
       "requires": [
         "d6",
@@ -712,6 +750,8 @@
       "summary": "Combinar dos ciclos para recorrer filas y columnas o repetir patrones.",
       "prior": "for y decisiones anidadas.",
       "why": "Los ciclos anidados aparecen después del for y las decisiones. Son la antesala de las matrices.",
+      "difficulty": 3,
+      "estimatedHours": 5,
       "examples": [
         {
           "title": "Tabla de multiplicar 3x3",
@@ -731,7 +771,7 @@
     },
     {
       "id": "e1",
-      "group": "m3",
+      "module": "m3",
       "title": "Arreglos de una dimensión",
       "requires": [
         "d6"
@@ -739,6 +779,8 @@
       "summary": "Guardar varios valores del mismo tipo en una colección con índices desde 0.",
       "prior": "Ciclo for.",
       "why": "El for recorre el arreglo. Primero se domina el ciclo y luego se agrupan datos.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Recorrer un arreglo",
@@ -754,11 +796,58 @@
           "code": "#include <stdio.h>\n\nint main(void) {\n    int numeros[4] = {2, 4, 6, 8};\n    int suma = 0;\n\n    for (int i = 0; i < 4; i++) {\n        suma += numeros[i];\n    }\n    printf(\"%d\\n\", suma);\n    return 0;\n}",
           "output": "20"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Usar arr[n] en un arreglo de n elementos.",
+          "fix": "Los índices van de 0 a n-1. C no te avisa: lees basura o el programa truena."
+        },
+        {
+          "mistake": "Intentar copiar un arreglo con a = b.",
+          "fix": "Los arreglos no se asignan completos; copia elemento por elemento con un for."
+        },
+        {
+          "mistake": "Leer un arreglo que nunca se inicializó.",
+          "fix": "Inicialízalo con int a[5] = {0}; o llénalo antes de usarlo."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Lee 5 calificaciones en un arreglo y muestra el promedio."
+        },
+        {
+          "level": 2,
+          "prompt": "Encuentra el valor mayor del arreglo y la posición donde está."
+        },
+        {
+          "level": 3,
+          "prompt": "Invierte el arreglo sin usar un segundo arreglo.",
+          "hint": "Intercambia a[i] con a[n-1-i] hasta llegar a la mitad."
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html",
+          "note": "Muy útil para ver el arreglo en memoria."
+        },
+        {
+          "title": "Arreglos en C (cppreference, en inglés)",
+          "type": "lectura",
+          "url": "https://en.cppreference.com/w/c/language/array"
+        }
+      ],
+      "checklist": [
+        "Sé por qué el primer índice es 0.",
+        "Puedo llenar, recorrer y buscar en un arreglo con for.",
+        "Reconozco cuándo un índice se sale del arreglo."
       ]
     },
     {
       "id": "e2",
-      "group": "m3",
+      "module": "m3",
       "title": "Cadenas (strings)",
       "requires": [
         "e1"
@@ -766,6 +855,8 @@
       "summary": "Manejar cadenas como arreglos de caracteres que terminan en el carácter nulo.",
       "prior": "Arreglos de una dimensión.",
       "why": "Una cadena es un arreglo de char con terminador. Se ve después de dominar índices y recorridos.",
+      "difficulty": 3,
+      "estimatedHours": 5,
       "examples": [
         {
           "title": "Longitud de una cadena",
@@ -781,11 +872,57 @@
           "code": "#include <stdio.h>\n\nint main(void) {\n    char nombre[20];\n\n    printf(\"Nombre: \");\n    fgets(nombre, sizeof(nombre), stdin);\n    printf(\"Hola, %s\", nombre);\n    return 0;\n}",
           "output": "Nombre: Ada\nHola, Ada"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "Comparar cadenas con ==.",
+          "fix": "== compara direcciones, no texto. Usa strcmp(a, b) == 0 de <string.h>."
+        },
+        {
+          "mistake": "No dejar espacio para el '\\0' final.",
+          "fix": "Una palabra de 10 letras necesita char s[11]."
+        },
+        {
+          "mistake": "scanf(\"%s\") corta la frase en el primer espacio.",
+          "fix": "Para leer una línea completa usa fgets(s, sizeof s, stdin) y quita el salto de línea del final."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Lee un nombre y muestra cuántas letras tiene: primero con strlen y luego contando tú con un ciclo."
+        },
+        {
+          "level": 2,
+          "prompt": "Cuenta cuántas vocales tiene una frase."
+        },
+        {
+          "level": 3,
+          "prompt": "Determina si una palabra es palíndromo.",
+          "hint": "Compara s[i] con s[n-1-i]."
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html"
+        },
+        {
+          "title": "Funciones de cadenas de <string.h> (cppreference, en inglés)",
+          "type": "lectura",
+          "url": "https://en.cppreference.com/w/c/string/byte"
+        }
+      ],
+      "checklist": [
+        "Sé que toda cadena termina en '\\0'.",
+        "Puedo leer una línea completa con fgets.",
+        "Uso strcmp, strcpy y strlen correctamente."
       ]
     },
     {
       "id": "e3",
-      "group": "m3",
+      "module": "m3",
       "title": "Arreglos multidimensionales",
       "requires": [
         "e1",
@@ -794,6 +931,8 @@
       "summary": "Organizar datos en filas y columnas con arreglos multidimensionales.",
       "prior": "Arreglos y ciclos anidados.",
       "why": "Las matrices necesitan índices y ciclos anidados. Por eso se ven después de ambos.",
+      "difficulty": 3,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Recorrer una matriz 2x3",
@@ -813,7 +952,7 @@
     },
     {
       "id": "e4",
-      "group": "m3",
+      "module": "m3",
       "title": "Registros (struct)",
       "requires": [
         "e1"
@@ -821,6 +960,8 @@
       "summary": "Agrupar varios datos de distinto tipo bajo un mismo registro.",
       "prior": "Arreglos de una dimensión.",
       "why": "Los struct agrupan campos relacionados. Se ven después de variables y arreglos para organizar información más rica.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Un registro de estudiante",
@@ -840,7 +981,7 @@
     },
     {
       "id": "e5",
-      "group": "m3",
+      "module": "m3",
       "title": "Leer archivos",
       "requires": [
         "e2",
@@ -849,6 +990,8 @@
       "summary": "Abrir un archivo de texto, comprobar errores y leer su contenido.",
       "prior": "Cadenas y registros.",
       "why": "Leer archivos combina cadenas, registros y control de errores. Se ubica al final de los arreglos porque usa varias piezas.",
+      "difficulty": 3,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Leer líneas con fgets",
@@ -868,7 +1011,7 @@
     },
     {
       "id": "e6",
-      "group": "m3",
+      "module": "m3",
       "title": "Escribir archivos",
       "requires": [
         "e5"
@@ -876,6 +1019,8 @@
       "summary": "Crear o sobrescribir archivos y guardar texto o datos con fprintf y fputs.",
       "prior": "Lectura de archivos.",
       "why": "Escritura y lectura se complementan. Primero se aprende a leer y luego a guardar resultados.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Escribir líneas con fprintf",
@@ -895,7 +1040,7 @@
     },
     {
       "id": "f1",
-      "group": "m4",
+      "module": "m4",
       "title": "Definir una función",
       "requires": [
         "c7",
@@ -904,6 +1049,8 @@
       "summary": "Crear funciones propias para dividir un programa en tareas reutilizables.",
       "prior": "Bibliotecas y ciclos anidados.",
       "why": "Las funciones aparecen después de saber usar bibliotecas y controlar bloques. Permiten ordenar programas grandes.",
+      "difficulty": 2,
+      "estimatedHours": 3,
       "examples": [
         {
           "title": "Función que saluda",
@@ -923,7 +1070,7 @@
     },
     {
       "id": "f2",
-      "group": "m4",
+      "module": "m4",
       "title": "Argumentos y valor de retorno",
       "requires": [
         "f1",
@@ -932,6 +1079,8 @@
       "summary": "Pasar datos a una función y devolver un resultado con return.",
       "prior": "Definir funciones y arreglos.",
       "why": "Los parámetros y el retorno conectan funciones con datos reales. Los arreglos se pasan como referencia y aparecen aquí.",
+      "difficulty": 2,
+      "estimatedHours": 4,
       "examples": [
         {
           "title": "Sumar dos números con return",
@@ -951,7 +1100,7 @@
     },
     {
       "id": "f3",
-      "group": "m4",
+      "module": "m4",
       "title": "Recursión",
       "requires": [
         "f2",
@@ -960,6 +1109,8 @@
       "summary": "Resolver un problema llamando a la misma función con un caso cada vez más pequeño.",
       "prior": "Funciones con retorno y ciclos while.",
       "why": "La recursión es lo más abstracto del curso. Requiere dominar funciones y una condición de parada, por eso va al final.",
+      "difficulty": 3,
+      "estimatedHours": 5,
       "examples": [
         {
           "title": "Factorial recursivo",
@@ -975,11 +1126,59 @@
           "code": "#include <stdio.h>\n\nvoid cuenta(int n) {\n    if (n == 0) {\n        printf(\"Fin\\n\");\n        return;\n    }\n    printf(\"%d \", n);\n    cuenta(n - 1);\n}\n\nint main(void) {\n    cuenta(3);\n    return 0;\n}",
           "output": "3 2 1 Fin"
         }
+      ],
+      "commonMistakes": [
+        {
+          "mistake": "No tener caso base, o tener uno que nunca se alcanza.",
+          "fix": "Escribe primero el caso base y verifica que cada llamada se acerque a él. Si no, la pila se desborda."
+        },
+        {
+          "mistake": "Olvidar regresar el resultado de la llamada recursiva.",
+          "fix": "Escribe return n * factorial(n - 1); y no solo factorial(n - 1);"
+        },
+        {
+          "mistake": "Usar recursión donde un ciclo es más claro y rápido.",
+          "fix": "Fibonacci recursivo sin memoria repite muchísimos cálculos. Compáralo con la versión con ciclo."
+        }
+      ],
+      "exercises": [
+        {
+          "level": 1,
+          "prompt": "Escribe el factorial recursivo y rastrea a mano factorial(4)."
+        },
+        {
+          "level": 2,
+          "prompt": "Suma los dígitos de un número de forma recursiva.",
+          "hint": "n % 10 da el último dígito y n / 10 lo quita."
+        },
+        {
+          "level": 3,
+          "prompt": "Calcula b elevado a e de forma recursiva con pocas multiplicaciones.",
+          "hint": "Si e es par, b^e = (b^(e/2))²."
+        }
+      ],
+      "resources": [
+        {
+          "title": "Python Tutor en modo C: ve tu programa paso a paso",
+          "type": "herramienta",
+          "url": "https://pythontutor.com/c.html",
+          "note": "Deja ver cómo se apilan las llamadas."
+        },
+        {
+          "title": "Ceballos-Sierra (2019). C/C++. Curso de programación",
+          "type": "libro",
+          "note": "Bibliografía básica. Busca el tema de recursividad."
+        }
+      ],
+      "checklist": [
+        "Puedo identificar el caso base y el paso recursivo.",
+        "Puedo rastrear a mano las llamadas de una función recursiva.",
+        "Sé explicar qué pasa si falta el caso base."
       ]
     },
     {
       "id": "z1",
-      "group": "meta",
+      "module": "meta",
       "title": "Proyecto integrador",
       "requires": [
         "e3",
@@ -989,6 +1188,8 @@
       "summary": "Integrar arreglos, archivos y funciones en un pequeño sistema que resuelve un problema completo.",
       "prior": "Todo el recorrido del mapa.",
       "why": "Es la meta del curso: combinar las piezas en un proyecto con datos, persistencia y funciones bien separadas.",
+      "difficulty": 3,
+      "estimatedHours": 12,
       "examples": [
         {
           "title": "Plan del proyecto",
