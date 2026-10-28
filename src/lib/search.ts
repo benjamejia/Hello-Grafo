@@ -1,7 +1,7 @@
 import type { Topic } from "../content/types";
 
 /** Minúsculas y sin acentos, para que "recursion" encuentre "Recursión". */
-export function normalize(text: string): string {
+function normalize(text: string): string {
   return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
 }
 

@@ -43,7 +43,6 @@ interface AppState {
   guideOpen: boolean;
   setTopicCompleted: (topicId: string, completed: boolean) => void;
   toggleTopicCompleted: (topicId: string) => void;
-  replaceProgress: (progress: Record<string, boolean>) => void;
   resetProgress: () => void;
   setNodePosition: (topicId: string, position: NodePosition) => void;
   resetLayout: () => void;
@@ -101,8 +100,6 @@ export const useAppStore = create<AppState>()(
         const current = get().progress[topicId] === true;
         get().setTopicCompleted(topicId, !current);
       },
-
-      replaceProgress: (progress) => set({ progress: { ...progress } }),
 
       resetProgress: () => set({ progress: {}, lastCompletedId: null }),
 
