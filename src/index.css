@@ -380,20 +380,38 @@
   }
 }
 
-/* Guía: resalta el elemento del que se está hablando */
-.guide-target {
-  position: relative;
-  z-index: 45;
-  border-radius: 0.75rem;
+/* Guía: oscurece la app y deja un hueco iluminado sobre el elemento del que se habla */
+.guide-spotlight {
+  position: absolute;
+  border-radius: 14px;
+  pointer-events: none;
   box-shadow:
-    0 0 0 3px #6366f1,
-    0 0 0 8px rgba(99, 102, 241, 0.25);
-  transition: box-shadow 200ms ease;
+    0 0 0 3px rgba(129, 140, 248, 0.95),
+    0 0 0 9999px rgba(2, 6, 23, 0.78);
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .guide-spotlight {
+    transition:
+      top 350ms ease,
+      left 350ms ease,
+      width 350ms ease,
+      height 350ms ease;
+  }
+
+  .guide-bubble {
+    animation: guide-in 260ms ease-out;
+  }
+
   .guide-avatar {
     animation: guide-bob 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes guide-in {
+  from {
+    opacity: 0;
+    translate: 0 8px;
   }
 }
 
@@ -403,6 +421,6 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-3px);
+    transform: translateY(-4px);
   }
 }
