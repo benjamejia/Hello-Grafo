@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   Background,
   BackgroundVariant,
@@ -12,11 +12,14 @@ import {
   type OnNodeDrag,
   type ReactFlowInstance,
 } from "@xyflow/react";
-import type { Course } from "../../content/types";
+import type { Plan } from "../../content/types";
 import {
   getAncestorIds,
-  getGroupById,
+  getCourseById,
+  getEquivalentTopics,
+  getModule,
   getTopicStatus,
+  getVisibleTopics,
 } from "../../lib/graph";
 import { NODE_HEIGHT, NODE_WIDTH, calculateLayout } from "../../lib/layout";
 import { usePrefersReducedMotion, useResolvedTheme } from "../../lib/theme";
@@ -25,49 +28,79 @@ import { TopicNode, type TopicFlowNode, type TopicNodeData } from "./TopicNode";
 
 const nodeTypes = { topic: TopicNode };
 
+/** Medidas del panel del tema (ver TopicPanel): ancho más margen en escritorio, alto máximo en celular. */
+const PANEL_DESKTOP_WIDTH = 472;
+const PANEL_MOBILE_HEIGHT = 0.58;
+
 interface CourseMapProps {
-  course: Course;
+  plan: Plan;
 }
 
-export function CourseMap({ course }: CourseMapProps) {
+export function CourseMap({ plan }: CourseMapProps) {
   const resolvedTheme = useResolvedTheme();
   const prefersReducedMotion = usePrefersReducedMotion();
   const progress = useAppStore((state) => state.progress);
-  const savedPositions = useAppStore((state) => state.positions);
+  const courseFilter = useAppStore((state) => state.courseFilter);
+  const allPositions = useAppStore((state) => state.positions);
   const selectedTopicId = useAppStore((state) => state.selectedTopicId);
   const focusRequest = useAppStore((state) => state.focusRequest);
   const layoutResetKey = useAppStore((state) => state.layoutResetKey);
   const setNodePosition = useAppStore((state) => state.setNodePosition);
   const resetLayout = useAppStore((state) => state.resetLayout);
   const selectTopic = useAppStore((state) => state.selectTopic);
+  const clearFocusRequest = useAppStore((state) => state.clearFocusRequest);
 
   const flowRef = useRef<ReactFlowInstance<TopicFlowNode, Edge> | null>(null);
-  const layout = useMemo(() => calculateLayout(course), [course]);
+  const [flowReady, setFlowReady] = useState(false);
+  // Si el mapa se monta para mostrar un tema (cambio automático de materia), se va directo
+  // a él sin el fitView inicial; si no, se verían dos movimientos seguidos.
+  const [focusOnMount] = useState(() => useAppStore.getState().focusRequest !== null);
+  const hasFocusedRef = useRef(false);
+
+  const savedPositions = useMemo(
+    () => allPositions[courseFilter] ?? {},
+    [allPositions, courseFilter],
+  );
+  const visible = useMemo(() => getVisibleTopics(plan, courseFilter), [plan, courseFilter]);
+  const mapTopics = useMemo(() => [...visible.topics, ...visible.external], [visible]);
+  const mapIds = useMemo(() => new Set(mapTopics.map((topic) => topic.id)), [mapTopics]);
+  const externalIds = useMemo(
+    () => new Set(visible.external.map((topic) => topic.id)),
+    [visible.external],
+  );
+  const layout = useMemo(() => calculateLayout(mapTopics), [mapTopics]);
 
   const highlightedIds = useMemo(() => {
-    if (!selectedTopicId) {
+    if (!selectedTopicId || !mapIds.has(selectedTopicId)) {
       return null;
     }
-    const topicExists = course.topics.some((topic) => topic.id === selectedTopicId);
-    if (!topicExists) {
-      return null;
-    }
-    const ids = getAncestorIds(course, selectedTopicId);
+    const ids = getAncestorIds(plan, selectedTopicId);
     ids.add(selectedTopicId);
     return ids;
-  }, [course, selectedTopicId]);
+  }, [mapIds, plan, selectedTopicId]);
+
+  const equivalentIds = useMemo(() => {
+    if (!highlightedIds || !selectedTopicId) {
+      return new Set<string>();
+    }
+    return new Set(
+      getEquivalentTopics(plan, selectedTopicId)
+        .map((topic) => topic.id)
+        .filter((id) => mapIds.has(id)),
+    );
+  }, [highlightedIds, mapIds, plan, selectedTopicId]);
 
   const computedNodes = useMemo<TopicFlowNode[]>(() => {
     const nodes: TopicFlowNode[] = [];
 
-    for (const topic of course.topics) {
-      const group = getGroupById(course, topic.group);
-      if (!group) {
+    for (const topic of mapTopics) {
+      const course = getCourseById(plan, topic.courseId);
+      if (!course) {
         continue;
       }
 
       const position = savedPositions[topic.id] ?? layout.positions[topic.id] ?? { x: 0, y: 0 };
-      const status = getTopicStatus(topic, progress);
+      const isEquivalent = equivalentIds.has(topic.id);
 
       nodes.push({
         id: topic.id,
@@ -79,16 +112,29 @@ export function CourseMap({ course }: CourseMapProps) {
         style: { width: NODE_WIDTH },
         data: {
           topic,
-          group,
-          status,
+          course,
+          moduleName: getModule(course, topic.module)?.name ?? topic.module,
+          status: getTopicStatus(topic, progress),
           isSelected: selectedTopicId === topic.id,
-          isDimmed: highlightedIds !== null && !highlightedIds.has(topic.id),
+          isDimmed: highlightedIds !== null && !highlightedIds.has(topic.id) && !isEquivalent,
+          isExternal: externalIds.has(topic.id),
+          isEquivalent,
         },
       });
     }
 
     return nodes;
-  }, [course, highlightedIds, layout.positions, progress, savedPositions, selectedTopicId]);
+  }, [
+    equivalentIds,
+    externalIds,
+    highlightedIds,
+    layout.positions,
+    mapTopics,
+    plan,
+    progress,
+    savedPositions,
+    selectedTopicId,
+  ]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState<TopicFlowNode>(computedNodes);
 
@@ -99,8 +145,11 @@ export function CourseMap({ course }: CourseMapProps) {
   const edges = useMemo<Edge[]>(() => {
     const result: Edge[] = [];
 
-    for (const topic of course.topics) {
+    for (const topic of visible.topics) {
       for (const requirementId of topic.requires) {
+        if (!mapIds.has(requirementId)) {
+          continue;
+        }
         const isActive =
           highlightedIds !== null &&
           highlightedIds.has(topic.id) &&
@@ -121,6 +170,7 @@ export function CourseMap({ course }: CourseMapProps) {
           style: {
             stroke: color,
             strokeWidth: isActive ? 2.4 : 1.5,
+            strokeDasharray: externalIds.has(requirementId) ? "6 4" : undefined,
             opacity: isDimmed ? 0.45 : 1,
           },
           markerEnd: {
@@ -133,8 +183,22 @@ export function CourseMap({ course }: CourseMapProps) {
       }
     }
 
+    // Las equivalencias no son requisitos: se dibujan punteadas y sin flecha.
+    if (selectedTopicId) {
+      for (const equivalentId of equivalentIds) {
+        result.push({
+          id: `eq-${selectedTopicId}-${equivalentId}`,
+          source: selectedTopicId,
+          target: equivalentId,
+          type: "straight",
+          className: "course-edge course-edge--equivalent",
+          style: { stroke: "var(--edge-equivalent)", strokeWidth: 2, strokeDasharray: "2 6" },
+        });
+      }
+    }
+
     return result;
-  }, [course, highlightedIds]);
+  }, [equivalentIds, externalIds, highlightedIds, mapIds, selectedTopicId, visible.topics]);
 
   const handleNodeDragStop: OnNodeDrag<TopicFlowNode> = useCallback(
     (_event, node) => {
@@ -159,38 +223,51 @@ export function CourseMap({ course }: CourseMapProps) {
   }, [layoutResetKey, prefersReducedMotion]);
 
   useEffect(() => {
-    if (!focusRequest) {
+    if (!focusRequest || !flowReady) {
       return;
     }
 
     const position = savedPositions[focusRequest.topicId] ?? layout.positions[focusRequest.topicId];
     const instance = flowRef.current;
+    clearFocusRequest();
     if (!position || !instance) {
       return;
     }
 
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
-    const zoom = 1;
-    const xOffset = isDesktop ? 220 / zoom : 0;
-    const yOffset = isDesktop ? 0 : (window.innerHeight * 0.22) / zoom;
+    // setCenter pone el punto en el centro del mapa. Se desplaza la mitad de lo que tapa
+    // el panel para que el tema quede centrado en la parte que sí se ve.
+    const zoom = isDesktop ? 1 : 0.85;
+    const xOffset = isDesktop ? PANEL_DESKTOP_WIDTH / 2 / zoom : 0;
+    const yOffset = isDesktop ? 0 : (window.innerHeight * PANEL_MOBILE_HEIGHT) / 2 / zoom;
+    const instant = prefersReducedMotion || (focusOnMount && !hasFocusedRef.current);
+    hasFocusedRef.current = true;
 
     instance.setCenter(
       position.x + NODE_WIDTH / 2 + xOffset,
       position.y + NODE_HEIGHT / 2 + yOffset,
       {
         zoom,
-        duration: prefersReducedMotion ? 0 : 400,
+        duration: instant ? 0 : 400,
       },
     );
-  }, [focusRequest, layout.positions, prefersReducedMotion, savedPositions]);
+  }, [
+    clearFocusRequest,
+    flowReady,
+    focusOnMount,
+    focusRequest,
+    layout.positions,
+    prefersReducedMotion,
+    savedPositions,
+  ]);
 
   const minimapNodeColor = (node: Node): string => {
     const data = node.data as TopicNodeData;
-    return data.group.color[resolvedTheme];
+    return data.course.color[resolvedTheme];
   };
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full" data-guide="map">
       <ReactFlow<TopicFlowNode, Edge>
         nodes={nodes}
         edges={edges}
@@ -200,10 +277,11 @@ export function CourseMap({ course }: CourseMapProps) {
         onPaneClick={() => selectTopic(null)}
         onInit={(instance) => {
           flowRef.current = instance;
+          setFlowReady(true);
         }}
-        fitView
+        fitView={!focusOnMount}
         fitViewOptions={{ padding: 0.16 }}
-        minZoom={0.12}
+        minZoom={0.08}
         maxZoom={1.8}
         nodesConnectable={false}
         edgesFocusable={false}

@@ -6,6 +6,13 @@ interface ExampleBlockProps {
 
 const LANGUAGE_LABEL: Record<Example["language"], string> = {
   c: "Lenguaje C",
+  java: "Java",
+  csharp: "C#",
+  javascript: "JavaScript",
+  php: "PHP",
+  html: "HTML",
+  css: "CSS",
+  sql: "SQL",
   pseudocode: "Seudocódigo",
   text: "Texto",
 };

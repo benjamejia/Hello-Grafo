@@ -1,0 +1,156 @@
+{
+  "id": "poo",
+  "code": null,
+  "title": "Programación Orientada a Objetos",
+  "shortTitle": "POO",
+  "semester": 2,
+  "languages": "Java (principalmente) y C#",
+  "syllabus": "inferido",
+  "note": "Aún no se tiene el programa oficial. Este temario se infirió del repaso de POO que hace el Módulo 2 de POE y del temario común de la materia.",
+  "color": {
+    "light": "#6d28d9",
+    "dark": "#c4b5fd"
+  },
+  "modules": [
+    { "id": "m1", "name": "Bloque 1 · De C a Java" },
+    { "id": "m2", "name": "Bloque 2 · Clases y objetos" },
+    { "id": "m3", "name": "Bloque 3 · Herencia y polimorfismo" },
+    { "id": "m4", "name": "Bloque 4 · Colecciones y excepciones" },
+    { "id": "meta", "name": "Proyecto final" }
+  ],
+  "topics": [
+    {
+      "id": "j1",
+      "module": "m1",
+      "title": "Entorno Java: JDK, IDE y estructura de un programa",
+      "requires": ["pe.c1", "pe.c2"],
+      "equivalentTo": ["pe.c1"],
+      "summary": "Instalar el JDK, crear un proyecto y entender por qué en Java todo vive dentro de una clase con un método main.",
+      "draft": true
+    },
+    {
+      "id": "j2",
+      "module": "m1",
+      "title": "Tipos, variables y operadores en Java",
+      "requires": ["j1", "pe.c6"],
+      "equivalentTo": ["pe.c5", "pe.c6"],
+      "summary": "Los tipos primitivos son casi los mismos que en C; lo nuevo es que String es un objeto.",
+      "draft": true
+    },
+    {
+      "id": "j3",
+      "module": "m1",
+      "title": "Control de flujo en Java",
+      "requires": ["j2", "pe.d7"],
+      "equivalentTo": ["pe.d2", "pe.d6"],
+      "summary": "if, switch, while y for se escriben igual que en C. Ya los sabes: solo cambia el entorno.",
+      "draft": true
+    },
+    {
+      "id": "j4",
+      "module": "m1",
+      "title": "Arreglos y String en Java",
+      "requires": ["j3", "pe.e1", "pe.e2"],
+      "equivalentTo": ["pe.e1", "pe.e2"],
+      "summary": "Los arreglos conocen su tamaño (length) y las cadenas se comparan con equals, no con ==.",
+      "draft": true
+    },
+    {
+      "id": "j5",
+      "module": "m1",
+      "title": "Métodos",
+      "requires": ["j3", "pe.f2"],
+      "equivalentTo": ["pe.f1", "pe.f2"],
+      "summary": "Las funciones de C pasan a llamarse métodos y pertenecen a una clase.",
+      "draft": true
+    },
+    {
+      "id": "o1",
+      "module": "m2",
+      "title": "Clases y objetos",
+      "requires": ["j5", "pe.e4"],
+      "summary": "Una clase es como un struct de C que además trae sus propias funciones. Cada objeto es una variable de ese tipo.",
+      "draft": true
+    },
+    {
+      "id": "o2",
+      "module": "m2",
+      "title": "Constructores y this",
+      "requires": ["o1"],
+      "summary": "Cómo nace un objeto con valores iniciales válidos y cómo se refiere a sí mismo.",
+      "draft": true
+    },
+    {
+      "id": "o3",
+      "module": "m2",
+      "title": "Encapsulamiento",
+      "requires": ["o2"],
+      "summary": "Atributos privados, getters y setters: proteger los datos de un objeto para que nadie los deje en un estado inválido.",
+      "draft": true
+    },
+    {
+      "id": "o4",
+      "module": "m2",
+      "title": "Miembros estáticos",
+      "requires": ["o2"],
+      "summary": "Atributos y métodos que pertenecen a la clase y no a cada objeto. Explica por qué main es static.",
+      "draft": true
+    },
+    {
+      "id": "o5",
+      "module": "m3",
+      "title": "Herencia",
+      "requires": ["o3"],
+      "summary": "Crear una clase a partir de otra para reutilizar y especializar su comportamiento.",
+      "draft": true
+    },
+    {
+      "id": "o6",
+      "module": "m3",
+      "title": "Polimorfismo y sobrescritura",
+      "requires": ["o5"],
+      "summary": "Un mismo mensaje produce respuestas distintas según el objeto que lo recibe.",
+      "draft": true
+    },
+    {
+      "id": "o7",
+      "module": "m3",
+      "title": "Clases abstractas e interfaces",
+      "requires": ["o6"],
+      "summary": "Definir qué debe saber hacer un objeto sin decir todavía cómo.",
+      "draft": true
+    },
+    {
+      "id": "o8",
+      "module": "m4",
+      "title": "Excepciones",
+      "requires": ["j5", "o1"],
+      "summary": "Manejar errores con try/catch en lugar de revisar códigos de retorno como en C.",
+      "draft": true
+    },
+    {
+      "id": "o9",
+      "module": "m4",
+      "title": "Colecciones: ArrayList y HashMap",
+      "requires": ["o1", "j4"],
+      "summary": "Listas que crecen solas y diccionarios clave-valor: adiós a calcular el tamaño de los arreglos.",
+      "draft": true
+    },
+    {
+      "id": "o10",
+      "module": "m3",
+      "title": "Diagramas de clases UML",
+      "requires": ["o5"],
+      "summary": "Dibujar clases y sus relaciones antes de programarlas.",
+      "draft": true
+    },
+    {
+      "id": "z1",
+      "module": "meta",
+      "title": "Proyecto orientado a objetos",
+      "requires": ["o7", "o8", "o9", "o10"],
+      "summary": "Diseñar con UML y programar en Java un sistema pequeño con herencia, interfaces y colecciones.",
+      "draft": true
+    }
+  ]
+}

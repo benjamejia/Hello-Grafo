@@ -1,0 +1,60 @@
+{
+  "id": "bd",
+  "code": null,
+  "title": "Bases de Datos",
+  "shortTitle": "BD",
+  "semester": 3,
+  "languages": "SQL",
+  "syllabus": "inferido",
+  "note": "Se cursa en paralelo con POE. Aquí solo aparecen los temas que POE y Programación Web dan por sabidos.",
+  "color": {
+    "light": "#4d7c0f",
+    "dark": "#bef264"
+  },
+  "modules": [
+    { "id": "rel", "name": "Bases de datos relacionales" },
+    { "id": "nosql", "name": "Bases de datos no relacionales" }
+  ],
+  "topics": [
+    {
+      "id": "r1",
+      "module": "rel",
+      "title": "Modelo relacional: tablas, llaves y relaciones",
+      "requires": ["pe.e4"],
+      "summary": "Organizar datos en tablas relacionadas por llaves. Una fila se parece mucho a un struct de C.",
+      "draft": true
+    },
+    {
+      "id": "s1",
+      "module": "rel",
+      "title": "SQL: consultas con SELECT",
+      "requires": ["r1"],
+      "summary": "Pedirle datos a la base: seleccionar columnas, filtrar con WHERE y ordenar.",
+      "draft": true
+    },
+    {
+      "id": "s2",
+      "module": "rel",
+      "title": "SQL: INSERT, UPDATE y DELETE",
+      "requires": ["s1"],
+      "summary": "Crear, modificar y borrar registros: las operaciones de un CRUD.",
+      "draft": true
+    },
+    {
+      "id": "s3",
+      "module": "rel",
+      "title": "Consultas con JOIN",
+      "requires": ["s1"],
+      "summary": "Combinar información de varias tablas relacionadas en una sola consulta.",
+      "draft": true
+    },
+    {
+      "id": "n1",
+      "module": "nosql",
+      "title": "Bases de datos de documentos (MongoDB)",
+      "requires": ["r1"],
+      "summary": "Guardar datos como documentos tipo JSON en lugar de filas y columnas.",
+      "draft": true
+    }
+  ]
+}

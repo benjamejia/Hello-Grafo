@@ -1,0 +1,232 @@
+{
+  "id": "web",
+  "code": "CU159",
+  "title": "Programación Web",
+  "shortTitle": "Web",
+  "semester": 4,
+  "languages": "HTML, CSS, JavaScript y PHP",
+  "syllabus": "oficial",
+  "color": {
+    "light": "#be123c",
+    "dark": "#fda4af"
+  },
+  "modules": [
+    { "id": "m1", "name": "Módulo 1 · Entorno web" },
+    { "id": "m2", "name": "Módulo 2 · Interfaces con HTML y CSS" },
+    { "id": "m3", "name": "Módulo 3 · JavaScript (cliente)" },
+    { "id": "m4", "name": "Módulo 4 · PHP (servidor)" },
+    { "id": "m5", "name": "Módulo 5 · Tópicos emergentes" },
+    { "id": "meta", "name": "Proyecto final" }
+  ],
+  "topics": [
+    {
+      "id": "a1",
+      "module": "m1",
+      "title": "Arquitectura de una aplicación web",
+      "requires": ["fund.p1", "fund.p6"],
+      "summary": "Qué pasa entre que escribes una dirección en el navegador y ves la página: cliente, servidor y HTTP.",
+      "draft": true
+    },
+    {
+      "id": "a2",
+      "module": "m1",
+      "title": "Evolución y tecnologías de la web",
+      "requires": ["a1"],
+      "summary": "De las páginas estáticas a las aplicaciones web, y qué tecnología se usa en cada capa.",
+      "draft": true
+    },
+    {
+      "id": "a3",
+      "module": "m1",
+      "title": "Sitios web: dominios, recursos y URL",
+      "requires": ["a1"],
+      "summary": "Hipervínculos, rutas absolutas y relativas, y cómo se organizan los archivos de un sitio.",
+      "draft": true
+    },
+    {
+      "id": "b1",
+      "module": "m2",
+      "title": "HTML: estructura y contenido",
+      "requires": ["a3"],
+      "summary": "Etiquetas para texto, enlaces, imágenes, listas y tablas.",
+      "draft": true
+    },
+    {
+      "id": "b2",
+      "module": "m2",
+      "title": "Formularios HTML",
+      "requires": ["b1"],
+      "summary": "Campos, botones y cómo se envían los datos al servidor.",
+      "draft": true
+    },
+    {
+      "id": "b3",
+      "module": "m2",
+      "title": "CSS: reglas, selectores y propiedades",
+      "requires": ["b1"],
+      "summary": "Separar el estilo del contenido y elegir a qué elementos se aplica cada regla.",
+      "draft": true
+    },
+    {
+      "id": "b4",
+      "module": "m2",
+      "title": "Modelo de caja",
+      "requires": ["b3"],
+      "summary": "margin, border, padding y content: por qué tu diseño mide más de lo que esperabas.",
+      "draft": true
+    },
+    {
+      "id": "b5",
+      "module": "m2",
+      "title": "Semántica y validación",
+      "requires": ["b1"],
+      "summary": "Usar la etiqueta correcta para cada cosa y validar el HTML.",
+      "draft": true
+    },
+    {
+      "id": "b6",
+      "module": "m2",
+      "title": "Diseño web adaptable",
+      "requires": ["b4"],
+      "summary": "Media queries, flexbox y grid para que la página funcione en celular y en computadora.",
+      "draft": true
+    },
+    {
+      "id": "c1",
+      "module": "m3",
+      "title": "Elementos de JavaScript",
+      "requires": ["b1", "pe.d7"],
+      "equivalentTo": ["pe.c5", "pe.d2", "pe.d6", "poe.a5"],
+      "summary": "Variables con let y const, tipos dinámicos y estructuras de control que ya conoces de C.",
+      "draft": true
+    },
+    {
+      "id": "c2",
+      "module": "m3",
+      "title": "Estructuras de datos en JavaScript",
+      "requires": ["c1"],
+      "equivalentTo": ["pe.e1", "poe.b5"],
+      "summary": "Arreglos que crecen solos y objetos literales para agrupar datos.",
+      "draft": true
+    },
+    {
+      "id": "c3",
+      "module": "m3",
+      "title": "Funciones y objetos en JavaScript",
+      "requires": ["c2", "poo.o1"],
+      "equivalentTo": ["pe.f2", "poo.o1"],
+      "summary": "Funciones, funciones flecha y clases en JavaScript.",
+      "draft": true
+    },
+    {
+      "id": "c4",
+      "module": "m3",
+      "title": "DOM y eventos",
+      "requires": ["c3", "b2", "poe.c5"],
+      "equivalentTo": ["poe.c5"],
+      "summary": "Leer y cambiar la página desde JavaScript y reaccionar a clics y teclas. Es la misma idea de eventos que viste en POE.",
+      "draft": true
+    },
+    {
+      "id": "c5",
+      "module": "m3",
+      "title": "Depuración en el navegador",
+      "requires": ["c1", "pe.c3"],
+      "equivalentTo": ["pe.c3"],
+      "summary": "La consola y las herramientas de desarrollador del navegador.",
+      "draft": true
+    },
+    {
+      "id": "d1",
+      "module": "m4",
+      "title": "Configurar el entorno de servidor",
+      "requires": ["a1"],
+      "summary": "Instalar un servidor local con PHP y base de datos (por ejemplo XAMPP).",
+      "draft": true
+    },
+    {
+      "id": "d2",
+      "module": "m4",
+      "title": "Elementos del lenguaje PHP",
+      "requires": ["d1", "c1"],
+      "equivalentTo": ["c1"],
+      "summary": "Variables con $, arreglos y control de flujo en PHP.",
+      "draft": true
+    },
+    {
+      "id": "d3",
+      "module": "m4",
+      "title": "Procesar formularios con PHP",
+      "requires": ["d2", "b2"],
+      "summary": "Recibir lo que el usuario envió con $_GET y $_POST, y validarlo.",
+      "draft": true
+    },
+    {
+      "id": "d4",
+      "module": "m4",
+      "title": "Funciones y objetos en PHP",
+      "requires": ["d2", "poo.o3"],
+      "equivalentTo": ["c3", "poo.o1"],
+      "summary": "Organizar el código del servidor con funciones y clases.",
+      "draft": true
+    },
+    {
+      "id": "d5",
+      "module": "m4",
+      "title": "Acceso a bases de datos con PHP",
+      "requires": ["d4", "bd.s2"],
+      "equivalentTo": ["poe.d2"],
+      "summary": "Conectarse a MySQL con PDO y ejecutar consultas de forma segura.",
+      "draft": true
+    },
+    {
+      "id": "d6",
+      "module": "m4",
+      "title": "Cookies, sesiones y autenticación",
+      "requires": ["d3", "d5"],
+      "summary": "Recordar quién es el usuario entre páginas y proteger lo privado.",
+      "draft": true
+    },
+    {
+      "id": "e1",
+      "module": "m5",
+      "title": "JSON",
+      "requires": ["c2"],
+      "equivalentTo": ["poe.d1"],
+      "summary": "El formato de texto con el que se intercambian datos en la web.",
+      "draft": true
+    },
+    {
+      "id": "e2",
+      "module": "m5",
+      "title": "APIs de JavaScript y fetch",
+      "requires": ["c4", "e1"],
+      "summary": "Pedir datos a un servidor sin recargar la página.",
+      "draft": true
+    },
+    {
+      "id": "e3",
+      "module": "m5",
+      "title": "jQuery",
+      "requires": ["c4"],
+      "summary": "Biblioteca que simplifica el DOM y los eventos. Hoy se usa menos, pero sigue en el programa.",
+      "draft": true
+    },
+    {
+      "id": "e4",
+      "module": "m5",
+      "title": "Modelo MVC en PHP",
+      "requires": ["d4", "d5"],
+      "summary": "Separar datos, vistas y controladores para que el proyecto no se vuelva un caos.",
+      "draft": true
+    },
+    {
+      "id": "z1",
+      "module": "meta",
+      "title": "Proyecto web completo",
+      "requires": ["b6", "e2", "d6", "e4"],
+      "summary": "Un sitio adaptable con JavaScript en el cliente, PHP en el servidor y base de datos.",
+      "draft": true
+    }
+  ]
+}

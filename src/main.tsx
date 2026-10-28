@@ -3,17 +3,14 @@ import { createRoot } from "react-dom/client";
 import "@xyflow/react/dist/style.css";
 import "./index.css";
 import App from "./App";
-import courseJson from "./content/course.json";
-import type { Course } from "./content/types";
-import { validateCourse } from "./lib/validateCourse";
-
-const course = courseJson as unknown as Course;
+import { plan } from "./content/plan";
+import { validatePlan } from "./lib/validateCourse";
 
 if (import.meta.env.DEV) {
-  const result = validateCourse(course);
+  const result = validatePlan(plan);
   if (result.ok) {
     console.info(
-      `[contenido] Válido: ${course.topics.length} temas y ${course.groups.length} grupos.`,
+      `[contenido] Válido: ${plan.topics.length} temas en ${plan.courses.length} materias.`,
     );
   } else {
     console.error("[contenido] Se encontraron errores:");
@@ -33,6 +30,6 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App course={course} />
+    <App plan={plan} />
   </StrictMode>,
 );

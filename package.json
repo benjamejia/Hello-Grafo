@@ -1,8 +1,20 @@
 {
   "name": "mapa-programacion-estructurada",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
+  "description": "Mapa interactivo de aprendizaje para la materia **Programación Estructurada** en lenguaje C. Muestra los temas, sus requisitos y ejemplos cortos, y guarda el progreso y la disposición de los nodos en el navegador.",
+  "homepage": "https://github.com/benjamejia/Hello-Grafo#readme",
+  "bugs": {
+    "url": "https://github.com/benjamejia/Hello-Grafo/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjamejia/Hello-Grafo.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "postcss.config.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
