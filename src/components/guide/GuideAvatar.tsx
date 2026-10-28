@@ -1,7 +1,14 @@
 import type { GuideMood } from "./guideScript";
 
+const SIZE_CLASS = {
+  md: "h-12 w-12",
+  lg: "h-16 w-16 sm:h-20 sm:w-20",
+  xl: "h-24 w-24 sm:h-28 sm:w-28",
+};
+
 interface GuideAvatarProps {
   mood: GuideMood;
+  size?: keyof typeof SIZE_CLASS;
 }
 
 /**
@@ -9,7 +16,7 @@ interface GuideAvatarProps {
  * Para usar la mascota, reemplaza el contenido de este componente
  * (imagen, SVG animado o Lottie) y usa `mood` para elegir la pose.
  */
-export function GuideAvatar({ mood }: GuideAvatarProps) {
+export function GuideAvatar({ mood, size = "md" }: GuideAvatarProps) {
   const happy = mood === "saluda" || mood === "celebra";
   const lookX = mood === "senala" ? 1.5 : mood === "piensa" ? -1.5 : 0;
   const lookY = mood === "piensa" ? -1.5 : 0;
@@ -17,7 +24,7 @@ export function GuideAvatar({ mood }: GuideAvatarProps) {
   return (
     <svg
       viewBox="0 0 48 48"
-      className="guide-avatar h-12 w-12 shrink-0 drop-shadow-sm"
+      className={`guide-avatar ${SIZE_CLASS[size]} shrink-0 drop-shadow-lg`}
       aria-hidden="true"
     >
       <circle cx="24" cy="24" r="21" className="fill-indigo-600 dark:fill-indigo-500" />
